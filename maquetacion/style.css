@@ -1,0 +1,13 @@
+.oferta{
+
+    font-weight: bold;
+    color: red;
+
+}
+
+#botonOferta{
+
+    background-color: red;
+    border-color: red;
+}
+
