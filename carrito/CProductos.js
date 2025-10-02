@@ -6,7 +6,7 @@ export default class CProductos{
         
         this.SKU = SKU;
         this.Title = Title;
-        this.Price = Price;
+        this.Price = parseFloat(Price);
 
     }
 
@@ -29,6 +29,15 @@ getInfo() {
     return `${this.SKU} (${this.Title}) - ${this.Price}€`;
   }
 
+}
+
+export class carrito{
+
+    constructor(currency, products){
+
+        this.currency = currency;
+        this.products = products;
 
 
+    }
 }
