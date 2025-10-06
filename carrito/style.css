@@ -1,3 +1,22 @@
 .container{
     margin: 10%;
 }
+
+#tablaEncabezado{
+
+    border-spacing: 20%;
+    border-collapse: separate;
+
+}
+
+.inpt{
+
+    width: 20%;
+
+}
+
+td{
+
+    padding: 2%;
+    width: 5%;
+}
