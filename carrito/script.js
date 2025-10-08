@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function (){
   //aqui le doy el valor a cada cosa que he ido metiendo en el html
   td1Producto.textContent = producto.title;
 
-  td3Producto.textContent = producto.price;
+  td3Producto.textContent = producto.price + data.currency;
 
   precioTotalProducto.textContent = producto.price;
 
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function (){
       const total = cantidad * producto.price;
 
       //esto redondea a 2 decimales
-      precioTotalProducto.textContent = total.toFixed(2); 
+      precioTotalProducto.textContent = total.toFixed(2) + data.currency; 
 
     }
     //accedemos aqui a la funcion para que el precio total empiece desde cero nada mas abrir la pagina
@@ -149,6 +149,18 @@ btnResta.addEventListener("click", function () {
 
 
 
+
+
+
+const CarritoDerecha = document.querySelector('.resumen');
+
+
+function calcularTotal(){
+
+  
+
+
+}
 
 
   });
