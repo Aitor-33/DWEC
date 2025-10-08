@@ -45,23 +45,28 @@ document.addEventListener('DOMContentLoaded', function (){
       const btnResta = document.createElement('button');
       const btnSuma = document.createElement('button');
       const inputCantidad = document.createElement('input');
+      inputCantidad.value = 0;
+      inputCantidad.readOnly = true;
 
 
   //aqui meto unidad que es el precio de una unidad de ese producto
   const td3Producto = document.createElement('td');
 
+
   //aqui es donde ira el total
   const td4Producto = document.createElement('td');
 
-  const currency = document.createElement('p');
+  const precioTotalProducto = document.createElement('p');
+
 
   //aqui le doy el valor a cada cosa que he ido metiendo en el html
   td1Producto.textContent = producto.title;
 
   td3Producto.textContent = producto.price;
 
-  currency.textContent = data.currency;
+  precioTotalProducto.textContent = producto.price;
 
+  
   //poniendo el contenido de los botones
   btnResta.textContent = '-';
 
@@ -89,12 +94,23 @@ document.addEventListener('DOMContentLoaded', function (){
 
   tr1Producto.appendChild(td4Producto);
   
-  td4Producto.appendChild(currency);
+  td4Producto.append(precioTotalProducto);
 
 
 
+    //esta es la funcion para que se actualice el precio segun la cantidad
+  function actualizarPrecioTotal() {
 
-    const totalPrecioProd1 = producto.price;
+      const cantidad = Number(inputCantidad.value);
+      const total = cantidad * producto.price;
+
+      //esto redondea a 2 decimales
+      precioTotalProducto.textContent = total.toFixed(2); 
+
+    }
+    //accedemos aqui a la funcion para que el precio total empiece desde cero nada mas abrir la pagina
+    //porque del contrario apareceria como si nada mas entrar hubiera un producto ya añadido en el precio total
+    actualizarPrecioTotal();
 
 btnSuma.addEventListener("click", function () {
 
@@ -106,6 +122,8 @@ btnSuma.addEventListener("click", function () {
     // Actualizamos el input
     inputCantidad.value = valorActual;
 
+    //aqui utilizamos la funcion de actualizar el precio por cantaidad
+    actualizarPrecioTotal();
 });
 
 
@@ -115,21 +133,25 @@ btnResta.addEventListener("click", function () {
   // Convertimos el valor del input a número
     let valorActual = Number(inputCantidad.value);
     
-    // disminuimos en 1
+    if(valorActual > 0){
+
+// disminuimos en 1
     valorActual--;
+
+    }
     
     // Actualizamos el input
     inputCantidad.value = valorActual;
 
+    //aqui utilizamos la funcion de actualizar el precio por cantaidad
+    actualizarPrecioTotal();
 });
 
+
+
+
+
   });
-
-
-
-
-
-
 
 });
 
