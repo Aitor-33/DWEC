@@ -115,7 +115,7 @@ btnResta.addEventListener("click", function () {
   // Convertimos el valor del input a número
     let valorActual = Number(inputCantidad.value);
     
-    // Aumentamos en 1
+    // disminuimos en 1
     valorActual--;
     
     // Actualizamos el input
