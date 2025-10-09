@@ -5,8 +5,12 @@ import carrito from "./CProductos.js"
 
 
 
-//foreach para recoger los datos del jso 
+//
 
+
+
+
+//foreach para recoger los datos del jso 
 
   const productos = [];
 
@@ -156,6 +160,8 @@ const CarritoDerecha = document.querySelector('.resumen');
 
 
 function calcularTotal(){
+
+  let cantidadDeProductos = Number(inputCantidad.value);
 
   
 
