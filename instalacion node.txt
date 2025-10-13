@@ -1,0 +1,21 @@
+$ npm install -g typescript
+
+$ npm install -g ts-node
+
+$ npm install -g npm
+
+$ npm -v
+
+$ npm install -g @angular/cli
+
+$ ng versión
+
+$ ng new ejemploAngular
+
+a todo no
+
+este es para iniciar el proyecto
+$ ng s -o
+
+
+luego abrimos otro terminal entramos en la ruta del proyecto y escribimos code .

@@ -5,11 +5,6 @@ import carrito from "./CProductos.js"
 
 
 
-//
-
-
-
-
 //foreach para recoger los datos del jso 
 
 const productos = [];
@@ -165,16 +160,6 @@ document.addEventListener('DOMContentLoaded', function () {
       //aqui utilizamos la funcion de actualizar el precio por cantaidad
       actualizarPrecioTotal();
     });
-
-
-
-    fetch('http://localhost:8080/api/carrito')
-      .then(function (response) {
-        return response.json()
-      })
-      .then(function (posts) {
-        
-      });
 
 
 
