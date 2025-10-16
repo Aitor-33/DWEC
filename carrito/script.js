@@ -3,195 +3,231 @@ import CProductos from "./CProductos.js";
 import carrito from "./CProductos.js"
 
 
-
-
-//foreach para recoger los datos del jso 
-
 const productos = [];
 
 data.products.forEach((p) => {
-
   const producto = new CProductos(p.SKU, p.title, p.price);
-
-
   productos.push(producto);
 });
 
 
-
 //manejo del dom
 
-document.addEventListener('DOMContentLoaded', function () {
 
 
 
-  fetch('http://localhost:8080/api/carrito') // 1) dispara la petición
-    .then(function(response) {
-      // 2) response es un objeto con .status, .ok, .headers y .json()
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  fetch('http://localhost:8080/api/carrito')
+    .then(response => {
       if (!response.ok) {
-        // fetch NO rechaza por status 4xx/5xx, así que debemos comprobarlo
-        throw new Error('Error HTTP: ' + response.status);
+        throw new Error('Error al cargar el JSON');
       }
-      // 3) leer el cuerpo y convertirlo a objeto JS (devuelve una promesa)
       return response.json();
     })
-    .then(function(data) {
+    .then(data => {
 
 
-  data.products.forEach((producto) => {
+      const totalesProductos = [];
+
+      console.log(productos);
+
+      data.products.forEach((producto) => {
 
 
-    const tablaProductos = document.querySelector('#tablaProductos');
+        const tablaProductos = document.querySelector('#tablaProductos');
+
+        const tablaCarrito = document.querySelector('#tablaCarrito');
 
 
-
-    //para hacer las filas
-    const tr1Producto = document.createElement('tr');
-
-
-    //esto es donde creo el texto para meter el nombre de los productos
-    const td1Producto = document.createElement('td');
+        //para hacer las filas
+        const tr1Producto = document.createElement('tr');
 
 
-    //aqui es donde metere los botones de mas y menos y la cantidad del producto
-    const td2Producto = document.createElement('td');
-
-    const btnResta = document.createElement('button');
-    const btnSuma = document.createElement('button');
-    const inputCantidad = document.createElement('input');
-    inputCantidad.value = 0;
-    inputCantidad.readOnly = true;
+        //esto es donde creo el texto para meter el nombre de los productos
+        const td1Producto = document.createElement('td');
 
 
-    //aqui meto unidad que es el precio de una unidad de ese producto
-    const td3Producto = document.createElement('td');
+        //aqui es donde metere los botones de mas y menos y la cantidad del producto
+        const td2Producto = document.createElement('td');
+
+        const btnResta = document.createElement('button');
+        const btnSuma = document.createElement('button');
+        const inputCantidad = document.createElement('input');
+        inputCantidad.value = 0;
+        inputCantidad.readOnly = true;
 
 
-    //aqui es donde ira el total
-    const td4Producto = document.createElement('td');
-
-    const precioTotalProducto = document.createElement('p');
+        //aqui meto unidad que es el precio de una unidad de ese producto
+        const td3Producto = document.createElement('td');
 
 
-    //aqui le doy el valor a cada cosa que he ido metiendo en el html
-    td1Producto.textContent = producto.title;
+        //aqui es donde ira el total
+        const td4Producto = document.createElement('td');
 
-    td3Producto.textContent = producto.price + data.currency;
-
-    precioTotalProducto.textContent = producto.price;
+        const precioTotalProducto = document.createElement('p');
 
 
-    //poniendo el contenido de los botones
-    btnResta.textContent = '-';
+        //aqui le doy el valor a cada cosa que he ido metiendo en el html
+        td1Producto.textContent = producto.title;
 
-    btnSuma.textContent = '+';
+        td3Producto.textContent = producto.price + data.currency;
 
-    btnResta.classList.add('btn');
-
-    btnSuma.classList.add('btn');
+        precioTotalProducto.textContent = producto.price;
 
 
+        //poniendo el contenido de los botones
+        btnResta.textContent = '-';
 
-    //clase de input
-    inputCantidad.classList.add('inpt');
+        btnSuma.textContent = '+';
 
-    //aqui voy insertando lo anterior al html
-    tablaProductos.appendChild(tr1Producto);
+        btnResta.classList.add('btn');
 
-    tr1Producto.appendChild(td1Producto);
-
-    tr1Producto.appendChild(td2Producto);
-
-    td2Producto.append(btnResta, inputCantidad, btnSuma);
-
-    tr1Producto.appendChild(td3Producto);
-
-    tr1Producto.appendChild(td4Producto);
-
-    td4Producto.append(precioTotalProducto);
+        btnSuma.classList.add('btn');
 
 
 
-    //esta es la funcion para que se actualice el precio segun la cantidad
-    function actualizarPrecioTotal() {
+        //clase de input
+        inputCantidad.classList.add('inpt');
 
-      const cantidad = Number(inputCantidad.value);
-      const total = cantidad * producto.price;
+        //aqui voy insertando lo anterior al html
+        tablaProductos.appendChild(tr1Producto);
 
-      //esto redondea a 2 decimales
-      precioTotalProducto.textContent = total.toFixed(2) + data.currency;
+        tr1Producto.appendChild(td1Producto);
 
+        tr1Producto.appendChild(td2Producto);
+
+        td2Producto.append(btnResta, inputCantidad, btnSuma);
+
+        tr1Producto.appendChild(td3Producto);
+
+        tr1Producto.appendChild(td4Producto);
+
+        td4Producto.append(precioTotalProducto);
+
+
+
+
+        //tabla del carrito
+
+        const filaCarrito = document.createElement('tr');
+        const N1ProductoCarrito = document.createElement("td");
+        const N2ProductoCarrito = document.createElement("td");
+        const N3ProductoCarrito = document.createElement("td");
+
+
+        tablaCarrito.appendChild(filaCarrito);
+
+        filaCarrito.appendChild(N1ProductoCarrito);
+        filaCarrito.appendChild(N2ProductoCarrito);
+        filaCarrito.appendChild(N3ProductoCarrito);
+
+
+
+
+
+        //esta es la funcion para que se actualice el precio segun la cantidad
+        function actualizarPrecioTotal() {
+
+          const cantidad = Number(inputCantidad.value);
+          const total1 = cantidad * producto.price;
+
+          //esto redondea a 2 decimales
+          precioTotalProducto.textContent = total1.toFixed(2) + data.currency;
+
+
+        }
+        //accedemos aqui a la funcion para que el precio total empiece desde cero nada mas abrir la pagina
+        //porque del contrario apareceria como si nada mas entrar hubiera un producto ya añadido en el precio total
+        actualizarPrecioTotal();
+
+        let valorActual = 0;
+
+        btnSuma.addEventListener("click", function () {
+
+          // Aumentamos en 1
+          valorActual++;
+
+          // Actualizamos el input
+          inputCantidad.value = valorActual;
+
+          //aqui utilizamos la funcion de actualizar el precio por cantaidad
+          actualizarPrecioTotal();
+          actualizarTablaTotal();
+          calcularTotalTotal();
+        });
+
+
+
+        btnResta.addEventListener("click", function () {
+
+          if (valorActual > 0) {
+
+            // disminuimos en 1
+            valorActual--;
+            
+
+          }
+
+          // Actualizamos el input
+          inputCantidad.value = valorActual;
+
+          //aqui utilizamos la funcion de actualizar el precio por cantaidad
+          actualizarPrecioTotal();
+          actualizarTablaTotal();
+          calcularTotalTotal();
+
+        });
+
+
+        const total = producto.price + data.currency;
+
+
+        const actualizarTablaTotal = () => {
+          const valorTotal = producto.title + " " + total + " x" + valorActual;
+          N1ProductoCarrito.textContent = valorTotal;
+
+          if(valorActual === 0){
+            valorTotal = "";
+
+          }
+        }
+
+
+
+          const divTotalTotal = document.getElementById("totalCarrito");
+
+
+        function calcularTotalTotal() {
+  let totalGeneral = 0;
+
+
+  const filas = document.querySelectorAll("#tablaProductos tr");
+
+  filas.forEach(fila => {
+    const totalCelda = fila.querySelector("td:last-child p");
+    if (totalCelda) {
+
+      const texto = totalCelda.textContent.replace(data.currency, "");
+      const valor = parseFloat(texto);
+      if (!isNaN(valor)) totalGeneral += valor;
     }
-    //accedemos aqui a la funcion para que el precio total empiece desde cero nada mas abrir la pagina
-    //porque del contrario apareceria como si nada mas entrar hubiera un producto ya añadido en el precio total
-    actualizarPrecioTotal();
-
-    btnSuma.addEventListener("click", function () {
-
-      let valorActual = Number(inputCantidad.value);
-
-      // Aumentamos en 1
-      valorActual++;
-
-      // Actualizamos el input
-      inputCantidad.value = valorActual;
-
-      //aqui utilizamos la funcion de actualizar el precio por cantaidad
-      actualizarPrecioTotal();
-    });
-
-
-
-    btnResta.addEventListener("click", function () {
-
-      // Convertimos el valor del input a número
-      let valorActual = Number(inputCantidad.value);
-
-      if (valorActual > 0) {
-
-        // disminuimos en 1
-        valorActual--;
-
-      }
-
-      // Actualizamos el input
-      inputCantidad.value = valorActual;
-
-      //aqui utilizamos la funcion de actualizar el precio por cantaidad
-      actualizarPrecioTotal();
-    });
-
-
-
-    const CarritoDerecha = document.querySelector('.resumen');
-
-
-    function calcularTotal() {
-
-      let cantidadDeProductos = Number(inputCantidad.value);
-
-      
-
-
-    }
-
-
   });
-})
-    .catch(function(err) {
-      // 5) errores de red, abort, JSON inválido, o el throw anterior
-      lista.innerHTML = '';
-      errorEl.textContent = 'Error: ' + err.message;
-      console.error(err);
+
+
+  const divTotalTotal = document.getElementById("totalCarrito");
+  divTotalTotal.textContent = totalGeneral.toFixed(2) + data.currency;
+}
+
+
+      });
+
     })
-    .finally(function() {
-      // 6) limpiar/estado final (si quieres)
-      // aquí podrías ocultar un spinner
-    });
-
-
-
+    .catch(error => console.error(error));
 });
+
+
 
 
 
