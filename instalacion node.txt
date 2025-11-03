@@ -14,8 +14,18 @@ $ ng new ejemploAngular
 
 a todo no
 
+
+después dentro del proyecto instalamos bootsrap
+
 este es para iniciar el proyecto
 $ ng s -o
 
 
 luego abrimos otro terminal entramos en la ruta del proyecto y escribimos code .
+
+
+luego en el styles metemos "styles": [
+              "src/styles.css", "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ], "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"]
+
+y esto en el script
