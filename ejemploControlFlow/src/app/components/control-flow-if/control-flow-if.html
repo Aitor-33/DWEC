@@ -1,0 +1,19 @@
+<section>
+    @if (edad >= 0 && edad < 18){
+
+        <p class="error">A ver pocoyo menorcito!!!!</p>
+        <hr>
+        <hr>
+        <hr>
+    }@else if (edad >= 18){
+        <p class="acierto">Tu pasas mayorcito</p>
+        <hr>
+        <hr>
+        <hr>
+    }@else {
+        <p class="error">Valor de edad incorrecto</p>
+        <hr>
+        <hr>
+        <hr>
+    } <input type="number" name="edad" id="edad" (input)="cambiarEdad($event)"/>
+</section>
