@@ -10,12 +10,13 @@ $ npm install -g @angular/cli
 
 $ ng versión
 
-$ ng new ejemploAngular
+$ ng new ejemploAngular --skip-tests
 
 a todo no
 
 
 después dentro del proyecto instalamos bootsrap
+npm i bootstrap
 
 este es para iniciar el proyecto
 $ ng s -o
@@ -29,3 +30,7 @@ luego en el styles metemos "styles": [
             ], "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"]
 
 y esto en el script
+
+ng g c components/component-navbar --skip-tests
+
+ng g i interfaces/interface-noticia --skip-tests

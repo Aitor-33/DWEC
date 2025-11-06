@@ -1,0 +1,13 @@
+
+
+
+
+        @for (noticiaActual of arrayNoticias; track noticiaActual.titulo; let i = $index;) {
+    <div class="card">
+    <img [src]="noticiaActual.imagen" class="card-img-top w-25" alt="">
+    <div class="card-body">
+        <h5 class="card-title">{{noticiaActual.titulo}}</h5>
+        <p class="card-text">{{noticiaActual.cuerpoNoticia}}</p>
+    </div>
+    </div>
+}
