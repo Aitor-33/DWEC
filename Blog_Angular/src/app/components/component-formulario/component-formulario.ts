@@ -1,35 +1,37 @@
+import { ComponentNoticias } from './../component-noticias/component-noticias';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { InterfaceNoticia } from '../../interfaces/interface-noticia';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-component-formulario',
-  imports: [],
+  imports: [FormsModule, ComponentNoticias],
   templateUrl: './component-formulario.html',
   styleUrl: './component-formulario.css',
 })
 export class ComponentFormulario {
 
- @Output() nuevaNoticia = new EventEmitter<InterfaceNoticia>();
 
-  titulo = '';
-  imagen = '';
-  cuerpoNoticia = '';
-  fechaNoticia = '';
+nuevaNoticia: InterfaceNoticia = {
 
-  enviarNoticia() {
-    const noticia: InterfaceNoticia = {
-      titulo: this.titulo,
-      imagen: this.imagen,
-      cuerpoNoticia: this.cuerpoNoticia,
-      fechaNoticia: new Date(this.fechaNoticia),
-    };
+titulo: "",
+imagen: "",
+cuerpoNoticia: "",
+fechaNoticia: new Date
 
-    this.nuevaNoticia.emit(noticia);
+}
 
-    // Resetear campos opcional
-    this.titulo = '';
-    this.imagen = '';
-    this.cuerpoNoticia = '';
-    this.fechaNoticia = '';
+
+guardarDatos() {
+this.nuevaNoticia = {
+  titulo: "",
+imagen: "",
+cuerpoNoticia: "",
+fechaNoticia: new Date()
+}
+agregarNoticia(this.nuevaNoticia)
 }
 }
+
+

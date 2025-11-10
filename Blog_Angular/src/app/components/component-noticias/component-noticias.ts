@@ -25,18 +25,6 @@ export class ComponentNoticias {
       imagen: "https://cdn-8.motorsport.com/images/mgl/0ZR74Db0/s800/marc-marquez-ducati-team.jpg",
       cuerpoNoticia: "Marc el actual campeon de esta temporada de MotoGP no volvera a correr esta temporada debido a una lesion en su hombro derecho que le ha obligado a pasar por el quirofano",
       fechaNoticia: new Date(2025, 9, 9)
-    },
-  {
-      titulo: "Marc Marquez no volvera a correr en MotoGP esta temporada",
-      imagen: "https://cdn-8.motorsport.com/images/mgl/0ZR74Db0/s800/marc-marquez-ducati-team.jpg",
-      cuerpoNoticia: "Marc el actual campeon de esta temporada de MotoGP no volvera a correr esta temporada debido a una lesion en su hombro derecho que le ha obligado a pasar por el quirofano",
-      fechaNoticia: new Date(2025, 9, 9)
-    },
-  {
-      titulo: "Marc Marquez no volvera a correr en MotoGP esta temporada",
-      imagen: "https://cdn-8.motorsport.com/images/mgl/0ZR74Db0/s800/marc-marquez-ducati-team.jpg",
-      cuerpoNoticia: "Marc el actual campeon de esta temporada de MotoGP no volvera a correr esta temporada debido a una lesion en su hombro derecho que le ha obligado a pasar por el quirofano",
-      fechaNoticia: new Date(2025, 9, 9)
     }];
   }
 

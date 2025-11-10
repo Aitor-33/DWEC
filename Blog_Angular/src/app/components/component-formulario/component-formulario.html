@@ -2,22 +2,22 @@
 <h2>Crea tu noticia</h2>
 
 <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput">Titulo de la noticia</label>
+  <input type="text" class="form-control" id="Titulo" placeholder="" [(ngModel)]="nuevaNoticia.titulo">
+  <label for="Titulo">Titulo de la noticia</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput">Url de la imagen</label>
+  <input type="text" class="form-control" id="imagen" placeholder="" [(ngModel)]="nuevaNoticia.imagen">
+  <label for="imagen">Url de la imagen</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="url" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput">cuerpo de la noticia</label>
+  <input type="url" class="form-control" id="cuerpo" placeholder="" [(ngModel)]="nuevaNoticia.cuerpoNoticia">
+  <label for="cuerpo">cuerpo de la noticia</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="date" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput">fehca de la noticia</label>
+  <input type="date" class="form-control" id="fecha" placeholder="" [(ngModel)]="nuevaNoticia.fechaNoticia">
+  <label for="fecha">fehca de la noticia</label>
 </div>
 <div class="divBotonCrear">
-  <button class="btn btn-primary" type="submit">Publicar</button>
+  <button class="btn btn-primary" type="submit" (click)="guardarDatos()">Publicar</button>
 </div>
 
