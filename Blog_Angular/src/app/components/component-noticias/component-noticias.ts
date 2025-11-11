@@ -28,6 +28,7 @@ export class ComponentNoticias {
     }];
   }
 
+  //aqui se agrega la noticia al array de noticias para que lo pinte despues el for del html
   agregarNoticia(noticia: InterfaceNoticia) {
     this.arrayNoticias.push(noticia);
   }

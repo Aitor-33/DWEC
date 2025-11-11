@@ -12,26 +12,37 @@ import { FormsModule } from '@angular/forms';
 })
 export class ComponentFormulario {
 
-
-nuevaNoticia: InterfaceNoticia = {
-
-titulo: "",
-imagen: "",
-cuerpoNoticia: "",
-fechaNoticia: new Date
-
-}
+ @Output() noticiaCreada = new EventEmitter<InterfaceNoticia>();
 
 
-guardarDatos() {
-this.nuevaNoticia = {
-  titulo: "",
-imagen: "",
-cuerpoNoticia: "",
-fechaNoticia: new Date()
-}
-agregarNoticia(this.nuevaNoticia)
-}
+
+  nuevaNoticia: InterfaceNoticia = {
+    titulo: "",
+    imagen: "",
+    cuerpoNoticia: "",
+    fechaNoticia: new Date()
+  }
+
+  guardarDatos() {
+    // esto comprueba si estan vacios o no
+    if (this.nuevaNoticia.titulo.trim() &&
+        this.nuevaNoticia.imagen.trim() &&
+        this.nuevaNoticia.cuerpoNoticia.trim()) {
+
+      // esto manda la noticia al padre en este caso component-blog
+      this.noticiaCreada.emit({...this.nuevaNoticia});
+
+      // esto vacia el formulario
+      this.nuevaNoticia = {
+        titulo: "",
+        imagen: "",
+        cuerpoNoticia: "",
+        fechaNoticia: new Date()
+      }
+    } else {
+      alert('Por favor, completa todos los campos');
+    }
+  }
 }
 
 

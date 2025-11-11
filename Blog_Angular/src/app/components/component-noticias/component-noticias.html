@@ -2,6 +2,7 @@
 <h1>Noticias del dia</h1>
 
 <div class="row row-cols-1 row-cols-md-2 g-4">
+  <!--este for lo que hace es ir recorriendo el array y pintando todas las noticias mediante el html de abajo-->
         @for (noticiaActual of arrayNoticias; track noticiaActual.titulo; let i = $index;) {
     <div class="col">
     <div class="card miCard">
