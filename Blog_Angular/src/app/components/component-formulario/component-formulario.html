@@ -2,6 +2,9 @@
 <h2>Crea tu noticia</h2>
 
 <div class="form-floating mb-3">
+  <!--aqui lo que hago es que el valor de este input sea dado a nuevaNoticia en su respetcivo valor
+  es decir por ejemplo en el input de Titulo se le dara valor a nuevaNoticia.titulo mediante ngModel
+  y de esta forma lo hago en todos los input-->
   <input type="text" class="form-control" id="Titulo" placeholder="" [(ngModel)]="nuevaNoticia.titulo">
   <label for="Titulo">Titulo de la noticia</label>
 </div>
@@ -18,6 +21,8 @@
   <label for="fecha">fehca de la noticia</label>
 </div>
 <div class="divBotonCrear">
+  <!--aqui lo que hago es mediante (click) llamar a la funcion guardarDatos del componenteFormulario.ts
+  de tal manera que lo q hace es cada vez que se da click a este boton se ejecuta esa funcion que tiene ya los validadores dentro-->
   <button class="btn bg-dark text-light" type="submit" (click)="guardarDatos()">Publicar</button>
 </div>
 
