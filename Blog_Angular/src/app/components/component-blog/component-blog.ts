@@ -16,6 +16,7 @@ export class ComponentBlog {
   //esto sirve para acceder al contenido del componente hijo en este caso compoente noticias
   @ViewChild(ComponentNoticias) noticiasComponent!: ComponentNoticias;
 
+  //aqui utilizo la funcion del hijo para agregar la noticia
   agregarNoticia(noticia: InterfaceNoticia) {
     this.noticiasComponent.agregarNoticia(noticia);
   }
