@@ -1,0 +1,36 @@
+<section class="container-mt-3">
+    <h2>Formulario Template Decroly Daw</h2>
+    <hr>
+    <div>
+        <form action="" class="shadow p-5" #miFormulario="ngForm" (ngSubmit)="getDataForm(miFormulario)">
+            <div> <!--al for id y name le damois el mismo nombre-->
+                <label for="nombre" class="form-label mt-3">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="introduce tu nombre" ngModel>
+            </div>
+
+            <div> <!--al for id y name le damois el mismo nombre-->
+                <label for="email" class="form-label mt-3">email</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="introduce tu email" ngModel>
+            </div>
+
+            <div> <!--al for id y name le damois el mismo nombre-->
+                <label for="edad" class="form-label mt-3">Edad</label>
+                <input type="number" class="form-control" id="edad" name="edad" placeholder="introduce tu edad" ngModel>
+            </div>
+
+            <div>
+                <label for="cargo" class="form-label mt-3">Cargo</label>
+                <select class="form-select" name="cargo" id="cargo" ngModel>
+                    <option value="" selected>Selecciona un cargo</option>
+                    <option value="Desarrollador">Desarrollador</option>
+                    <option value="SEO">SEO</option>
+                    <option value="Marketing">Marketing</option>
+                </select>
+            </div>
+
+            <input type="submit" value="Enviar" class="btn btn-danger mt-5">
+
+        </form>
+    </div>
+
+</section>
