@@ -1,0 +1,8 @@
+<div class="container">
+@for (productoActual of arrayDeProductos; track productoActual.sku; let i = $index;) {
+
+    <p>{{productoActual.sku}}</p>
+    <p>{{productoActual.title}}</p>
+    <p>{{productoActual.price}}</p>
+}
+</div>

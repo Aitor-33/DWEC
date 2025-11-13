@@ -34,4 +34,8 @@ luego abrimos otro terminal entramos en la ruta del proyecto y escribimos code .
 
 ng g c components/component-navbar --skip-tests
 
-ng g i interfaces/interface-noticia --skip-tests
+ng g i interfaces/interface-noticia --type = interface
+
+ng g s services/service-productos
+
+emailjs
