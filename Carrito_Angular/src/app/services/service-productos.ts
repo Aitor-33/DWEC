@@ -25,14 +25,16 @@ export class ServiceProductos {
       return response.json();
     })
     .then(data => {
-          this.arrayProductos.push(data.products);
+          this.arrayProductos = data.products;
           
   })
     .catch(error => console.error(error));
 }
   
 obtenerProductos(): InterfaceProducto[] {
+
     return this.arrayProductos;
+
   }
 
 }
