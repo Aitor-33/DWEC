@@ -1,7 +1,8 @@
 package com.example.tienda.controller;
 
-import com.example.repository.*;
-import com.example.entity.PedidoEntity;
+import com.example.tienda.repository.*;
+import com.example.tienda.repository.PedidoRepository;
+import com.example.tienda.entity.PedidoEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
