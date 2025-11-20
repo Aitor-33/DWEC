@@ -9,6 +9,8 @@ export class ServiceProductos {
   arrayProductos: InterfaceProducto[];
   currency: string;
 
+  
+  
 
   constructor(){
     this.arrayProductos = [];
@@ -30,6 +32,12 @@ export class ServiceProductos {
 obtenerProductos(): InterfaceProducto[] {
 
     return this.arrayProductos;
+
+  }
+
+  obtenerCurrency(): string {
+
+    return this.currency;
 
   }
 

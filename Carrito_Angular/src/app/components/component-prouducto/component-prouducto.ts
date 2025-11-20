@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 
 import { ServiceProductos } from '../../services/service-productos';
 
+import { InterfaceProducto } from '../../interfaces/interface-producto.interface';
 @Component({
   selector: 'app-component-prouducto',
   imports: [],
@@ -10,6 +11,10 @@ import { ServiceProductos } from '../../services/service-productos';
 })
 export class ComponentProuducto {
 
-  @Input() productoActual!: ServiceProductos;
+  ServiceProductos = inject(ServiceProductos);
+
+  @Input() producto!: InterfaceProducto[];
+  @Input() currency!: string;
+
 
 }

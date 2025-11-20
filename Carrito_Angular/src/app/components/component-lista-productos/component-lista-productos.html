@@ -1,8 +1,8 @@
 <div class="container">
 
-  @for(producto of arrayDeProductos; track producto.sku){
+  @for(producto of productos; track producto.sku){
 
-    <app-component-prouducto [productoActual]="producto"></app-component-prouducto>
+    <app-component-prouducto [producto]="producto"></app-component-prouducto>
 
   }
 </div>
