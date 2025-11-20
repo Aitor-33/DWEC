@@ -10,27 +10,23 @@ export class ServiceProductos {
   currency: string;
 
 
-  //ATENCION AITOR DEL FUTURO CURRENCY ESTA MAL CAMBIALO MAMON
   constructor(){
     this.arrayProductos = [];
     this.currency = "";
-
-  
-
+    // Llamada a la API para obtener los productos
   fetch('http://localhost:8080/api/carrito')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Error al cargar el JSON');
-      }
-      return response.json();
-    })
-    .then(data => {
-          this.arrayProductos = data.products;
-          
-  })
-    .catch(error => console.error(error));
+          .then(response => response.json())
+          .then(data =>{
+            data.products.forEach((producto: InterfaceProducto) => {
+              this.arrayProductos.push(producto);
+              this.currency = data.currency;
+            });
+
+
+      });
+
 }
-  
+
 obtenerProductos(): InterfaceProducto[] {
 
     return this.arrayProductos;

@@ -1,10 +1,8 @@
 <div class="container">
-@for (productoActual of arrayDeProductos; track productoActual.sku; let i = $index;) {
 
-    <p>{{productoActual.sku}}</p>
-    <p>{{productoActual.title}}</p>
-    <p>{{productoActual.price}}</p>
-}
+  @for(producto of arrayDeProductos; track producto.sku){
 
-<button (click)="comprobar()">comprobar</button>
+    <app-component-prouducto [productoActual]="producto"></app-component-prouducto>
+
+  }
 </div>
