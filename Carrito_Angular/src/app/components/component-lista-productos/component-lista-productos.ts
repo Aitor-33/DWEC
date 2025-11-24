@@ -13,8 +13,14 @@ export class ComponentListaProductos {
 
     ServiceProductos = inject(ServiceProductos);
 
-    productos: InterfaceProducto[] = [];
-    currency: string = '';
+    productos: InterfaceProducto[];
+    currency: string;
+
+    constructor() {
+
+      this.productos = [];
+      this.currency = "";
+    }
 
 
     ngOnInit(): void {

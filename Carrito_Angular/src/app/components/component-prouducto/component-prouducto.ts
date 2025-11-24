@@ -2,6 +2,8 @@ import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 
 import { ServiceProductos } from '../../services/service-productos';
 
+import { ServicePFinal } from '../../services/service-p-final';
+
 import { InterfaceProducto } from '../../interfaces/interface-producto.interface';
 @Component({
   selector: 'app-component-prouducto',
@@ -12,41 +14,41 @@ import { InterfaceProducto } from '../../interfaces/interface-producto.interface
 export class ComponentProuducto {
 
   precioTotalProducto: number;
-  cantidad:number;
+  cantidad: number;
 
-constructor() {
-  this.cantidad = 0;
-  this.precioTotalProducto = 0;
-}
+  constructor() {
+    this.cantidad = 0;
+    this.precioTotalProducto = 0;
+  }
 
   ServiceProductos = inject(ServiceProductos);
+  ServicePFinal = inject(ServicePFinal);
 
   @Input() producto!: InterfaceProducto;
   @Input() currency!: string;
 
 
-cargarCantidad(event: any): void {
-  this.cantidad = Number(event.target.value);
-}
-
-botonMas() {
-
-  this.cantidad ++;
-
-  console.log(this.cantidad);
-  this.precioTotalProducto = this.cantidad * this.producto.price;
-}
-
-botonMenos() {
-
-  if(this.cantidad > 0){
-
-  this.cantidad --;
-  console.log(this.cantidad);
-
+  ngOnInit(): void {
+    this.currency = this.ServiceProductos.obtenerCurrency();
   }
 
 
-}
+  valorInput(): number {
+
+    return this.ServicePFinal.getCantidad(this.producto.sku);
+
+  }
+
+  botonMas() {
+
+    this.ServicePFinal.añadirProducto(this.producto);
+
+  }
+
+  botonMenos() {
+
+    this.ServicePFinal.quitarCantidad(this.producto.sku);
+
+  }
 
 }
