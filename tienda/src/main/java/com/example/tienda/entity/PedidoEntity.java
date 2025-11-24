@@ -23,8 +23,8 @@ public class PedidoEntity {
     String nombre_cliente;
  
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @Column(name = "fecha_pedido")
-    LocalDateTime fecha_pedido;
+    @Column(nullabe
+    LocalDateTime fecha_alta;
  
     @Column(name = "importe_total", length = 10)
     double importe_total;
