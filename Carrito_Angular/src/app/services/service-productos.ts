@@ -9,13 +9,13 @@ export class ServiceProductos {
   arrayProductos: InterfaceProducto[];
   currency: string;
 
-  
-  
+
+
 
   constructor(){
     this.arrayProductos = [];
     this.currency = "";
-    // Llamada a la API para obtener los productos
+
   fetch('http://localhost:8080/api/carrito')
           .then(response => response.json())
           .then(data =>{

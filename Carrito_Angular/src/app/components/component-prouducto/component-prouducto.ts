@@ -14,10 +14,9 @@ import { InterfaceProducto } from '../../interfaces/interface-producto.interface
 export class ComponentProuducto {
 
   precioTotalProducto: number;
-  cantidad: number;
+
 
   constructor() {
-    this.cantidad = 0;
     this.precioTotalProducto = 0;
   }
 
@@ -49,6 +48,16 @@ export class ComponentProuducto {
 
     this.ServicePFinal.quitarCantidad(this.producto.sku);
 
+    if(this.ServicePFinal.getCantidad(this.producto.sku)==0){
+
+      this.ServicePFinal.eliminarProducto(this.producto.sku);
+
+    }
+
+
   }
+
+
+
 
 }

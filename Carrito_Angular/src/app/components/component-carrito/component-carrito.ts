@@ -1,5 +1,7 @@
+import { ServiceProductos } from './../../services/service-productos';
 import { ServicePFinal } from './../../services/service-p-final';
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { InterfacePFinal } from '../../interfaces/interface-p-final.interface';
 
 
 @Component({
@@ -10,7 +12,34 @@ import { Component, inject } from '@angular/core';
 })
 export class ComponentCarrito {
 
-ServicePFinal = inject(ServicePFinal);
+  ServicePFinal = inject(ServicePFinal);
+  ServiceProductos = inject(ServiceProductos);
+
+  currency:string;
+
+  arrayPCarrito: InterfacePFinal[];
+
+  constructor() {
+
+    this.arrayPCarrito = [];
+    this.currency = "";
+
+  }
+
+  ngOnInit(): void {
+
+    this.arrayPCarrito = this.ServicePFinal.getProductosDelCarrito();
+    this.ServiceProductos.obtenerCurrency();
+
+  }
+
+  calcularTotalCarrito(): number {
+    return this.ServicePFinal.getTotalCarrito();
+  }
+
+
+
+
 
 
 }
