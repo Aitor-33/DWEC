@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { ServiciosProfesionalesCardComponent } from "../../components/servicios-profesionales-card/servicios-profesionales-card.component";
 
 @Component({
   selector: 'app-servicios-profesionales',
-  imports: [],
+  imports: [ServiciosProfesionalesCardComponent],
   templateUrl: './servicios-profesionales.component.html',
   styleUrl: './servicios-profesionales.component.css',
 })
