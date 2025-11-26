@@ -1,0 +1,16 @@
+.principal {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* El contenedor del medio crece para empujar el footer abajo */
+.container {
+  flex: 1;
+}
+
+/* El footer se queda al final */
+app-component-footer {
+  margin-top: auto;
+}
