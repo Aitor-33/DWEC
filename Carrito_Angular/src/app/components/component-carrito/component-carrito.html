@@ -1,6 +1,16 @@
 <div class="carrito">
     <h2>TOTAL</h2>
-    <p></p>
-    <hr>
-    <p>Total:</p>
+    @for (p of arrayPCarrito; track p.producto.sku) {
+
+      <hr>
+      <!--no se porque no me coge el currency aqui pero en component-producto si que lo hace no lo entiendo-->
+      <p>{{p.producto.title}} -> {{p.cantidad}} -> {{ServicePFinal.getPrecioProducto(p.producto.sku).toFixed(2)}} €<!--{{currency}}--></p>
+
+
+    }@empty {
+      <p>No hay ningun producto</p>
+    }
+
+    <hr><!--aqui me pasa lo mismo-->
+    <p>Total: {{ calcularTotalCarrito().toFixed(2) }} €<!--{{ currency }}--></p>
 </div>
