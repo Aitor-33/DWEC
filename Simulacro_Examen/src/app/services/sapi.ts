@@ -7,21 +7,18 @@ import { Iproducto } from '../interfaces/iproducto';
 export class Sapi {
 
   arrayProductos: Iproducto[];
-  currency: string;
 
 
 
 
   constructor(){
     this.arrayProductos = [];
-    this.currency = "";
 
-  fetch('http://localhost:8080/api/carrito')
+  fetch('http://localhost:8080/api/products')
           .then(response => response.json())
           .then(data =>{
-            data.products.forEach((producto: Iproducto) => {
+            data.forEach((producto: Iproducto) => {
               this.arrayProductos.push(producto);
-              this.currency = data.currency;
             });
 
 
@@ -32,12 +29,9 @@ export class Sapi {
 obtenerProductos(): Iproducto[] {
 
     return this.arrayProductos;
+    console.log(this.arrayProductos);
+
 
   }
 
-  obtenerCurrency(): string {
-
-    return this.currency;
-
-  }
 }

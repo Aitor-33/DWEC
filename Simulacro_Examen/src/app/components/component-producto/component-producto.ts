@@ -1,6 +1,7 @@
 import { Iproducto } from '../../interfaces/iproducto';
 import { Sapi } from './../../services/sapi';
 import { Component, inject, Input, input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-component-producto',
@@ -13,13 +14,19 @@ export class ComponentProducto {
   Sapi = inject(Sapi);
 
   @Input() producto!:Iproducto;
-  @Input() currency!:string;
+
+  router = inject(Router);
 
 
 
   ngOnInit():void{
-    this.currency = this.Sapi.obtenerCurrency();
+
   }
 
+
+      seeDetails(producto: Iproducto) {
+        this.router.navigate(['/producto', producto.id]);
+
+    }
 
 }

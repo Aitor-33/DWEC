@@ -1,8 +1,11 @@
 export interface Iproducto {
 
-  sku:string;
-  title:string;
-  price:string;
-  image:string;
+id: number;
+name: string;
+description: string;
+price: number;
+category: string;
+image: string;
+active: boolean;
 
 }

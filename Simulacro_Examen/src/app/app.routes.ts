@@ -7,6 +7,7 @@ export const routes: Routes = [
 { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: PageHome },
     { path: 'carrito', component: PageCarrito },
+    { path: 'producto/:id', component: SerieForm },
     // { path: '**', component: Page404Componet }
     { path: '**', redirectTo: 'home' }
 

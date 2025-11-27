@@ -1,13 +1,15 @@
 
 
-    <div class="card">
-      <img src="{{producto.image}}" class="card-img-top" alt="...">
+    <div class="card mt-3">
+      <img src="{{producto.image}}" class="card-img-top imagen-producto" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{producto.title}} <small>{{producto.sku}}</small></h5>
+        <h5 class="card-title">{{producto.name}}</h5>
         <p class="card-text">{{producto.price}}</p>
+        <hr>
+        <p class="card-text"></p>
         <div class="d-flex gap-3 mx-5">
         <button type="button" class="btn btn-success">Añadir al carrito</button>
-        <button type="button" class="btn btn-info">Ver mas</button>
+        <button type="button" class="btn btn-info" (click)="seeDetails(producto)">Ver mas</button>
       </div>
     </div>
     </div>

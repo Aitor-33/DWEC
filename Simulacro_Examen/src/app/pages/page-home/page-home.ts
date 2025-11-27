@@ -12,21 +12,19 @@ import { Iproducto } from '../../interfaces/iproducto';
 export class PageHome {
 
 
-      Sapi = inject(Sapi);
+    Sapi = inject(Sapi);
 
     productos: Iproducto[];
-    currency: string;
 
     constructor() {
 
       this.productos = [];
-      this.currency = "";
     }
 
 
     ngOnInit(): void {
         this.productos = this.Sapi.obtenerProductos();
-        this.currency = this.Sapi.obtenerCurrency();
+
     }
 
 
