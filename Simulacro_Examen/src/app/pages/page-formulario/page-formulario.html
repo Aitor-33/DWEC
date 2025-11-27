@@ -1,0 +1,37 @@
+    <div class="container mt-5 p-3">
+    <form [formGroup]="productoForm" class="card p-3 shadow bg-secondary" (ngSubmit)="getDataForm()">
+        <div class="my-2">
+            <label for="sku" class="form-label mt-lg-3">SKU</label>
+            <input type="text" class="form-control" name="sku" id="sku" placeholder="Introduce el titulo"
+                formControlName="sku">
+        </div>
+
+        <div class="my-2">
+            <label for="title" class="form-label mt-lg-3">Titulo</label>
+            <input type="text" class="form-control" name="title" id="title" placeholder="Introduce el creador"
+                formControlName="title">
+        </div>
+
+        <div class="my-2">
+            <label for="price" class="form-label mt-lg-3">Precio</label>
+            <input type="number" class="form-control" name="price" id="price" placeholder="Introduce la puntuacion"
+                formControlName="price">
+        </div>
+
+        <div class="my-2">
+            <label for="image" class="form-label mt-lg-3">Url de la imagen</label>
+            <input type="text" class="form-control" name="image" id="image"
+                placeholder="Introduce las fechas de emision" formControlName="image">
+        </div>
+
+        <div class="my-2">
+            <label for="image" class="form-label mt-lg-3">Imagen</label>
+            <input type="text" class="form-control" name="image" id="image" placeholder="Introduce el link de la imagen"
+                formControlName="image">
+        </div>
+
+        <div class="d-flex ms-auto gap-2">
+            <button class="btn btn-warning mt-5" [routerLink]="['/home']">Volver</button>
+        </div>
+    </form>
+</div>
