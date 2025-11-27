@@ -10,5 +10,7 @@ import { ComponentFooter } from "./components/component-footer/component-footer"
   styleUrl: './app.css'
 })
 export class App {
+
   protected readonly title = signal('Simulacro_Examen');
+
 }
