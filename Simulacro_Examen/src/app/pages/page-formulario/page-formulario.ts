@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
-import { ActivatedRoute, Router, RouterLink} from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterLinkActive} from '@angular/router';
 import { Iproducto } from '../../interfaces/iproducto';
 import { SCarrito } from '../../services/scarrito';
 
 @Component({
   selector: 'app-page-formulario',
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, RouterLinkActive],
   templateUrl: './page-formulario.html',
   styleUrl: './page-formulario.css',
 })
@@ -20,14 +20,19 @@ export class PageFormulario {
     router = inject(Router);
 
 
+
 constructor(){
 
   this.productoForm = new FormGroup({
 
-    sku: new FormControl(null, [Validators.required]),
-    title:new FormControl(null, [Validators.required]),
+    id: new FormControl(null, [Validators.required]),
+    name:new FormControl(null, [Validators.required]),
+    number:new FormControl(null, [Validators.required]),
+    description:new FormControl(null, [Validators.required]),
     price:new FormControl(null, [Validators.required]),
+    category:new FormControl(null, [Validators.required]),
     image:new FormControl(null, [Validators.required]),
+    active:new FormControl(null, [Validators.required]),
   },[]);
 
 }

@@ -5,14 +5,11 @@ import { PageFormulario } from './pages/page-formulario/page-formulario';
 
 export const routes: Routes = [
 
-{ path: '', pathMatch: 'full', redirectTo: 'home' },
+    { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: PageHome },
     { path: 'carrito', component: PageCarrito },
-<<<<<<< HEAD
-    { path: 'producto/:id', component: SerieForm },
-=======
     { path: 'formulario', component: PageFormulario },
->>>>>>> 7a531fe676c674dea2ce0c9cb2c38b4eeb8ac482
+    { path: 'formulario/:id', component: PageFormulario },
     // { path: '**', component: Page404Componet }
     { path: '**', redirectTo: 'home' }
 
