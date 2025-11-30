@@ -20,14 +20,12 @@ export class PageFormulario {
     router = inject(Router);
 
 
-
 constructor(){
 
   this.productoForm = new FormGroup({
 
     id: new FormControl(null, [Validators.required]),
     name:new FormControl(null, [Validators.required]),
-    number:new FormControl(null, [Validators.required]),
     description:new FormControl(null, [Validators.required]),
     price:new FormControl(null, [Validators.required]),
     category:new FormControl(null, [Validators.required]),
@@ -42,6 +40,10 @@ getDataForm(){
   let producto = this.productoForm.value as Iproducto;
 
   this.sCarrito.insertarProducto(producto);
+
+  console.log(producto);
+
+  this.productoForm.reset();
 
 }
 
