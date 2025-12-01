@@ -14,13 +14,24 @@
         <li class="nav-item ">
           <a class="nav-link text-light" [routerLink]="['carrito']" routerLinkActive="active">Carrito</a>
         </li>
+        @switch(rol){@case ('admin') {
         <li class="nav-item ">
           <a class="nav-link text-light" [routerLink]="['formulario']" routerLinkActive="active">formulario</a>
         </li>
+        }@case ('user'){
+
+        }
+
+        }
+
         <li class="nav-item">
+
           <select class="nav-link text-light">
-            <option value="admin">administrador</option>
-            <option value="user">usuario</option>
+            @for(rol of roles; track rol){
+
+            <option [value]="rol">{{rol}}</option>
+
+            }
           </select>
         </li>
       </ul>

@@ -1,7 +1,7 @@
 import { SCarrito } from './../../services/scarrito';
 import { Iproducto } from '../../interfaces/iproducto';
 import { Sapi } from './../../services/sapi';
-import { Component, inject, Input, input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, input, Output } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -20,7 +20,7 @@ export class ComponentProducto {
 
   router = inject(Router);
 
-
+@Output() eliminar = new EventEmitter<string>();
 
   ngOnInit():void{
 
@@ -28,6 +28,7 @@ export class ComponentProducto {
 
     deleteProducto(producto: Iproducto) {
         this.SCarrito.deleteByName(producto.name);
+        this.eliminar.emit(this.producto.name);
     }
 
 

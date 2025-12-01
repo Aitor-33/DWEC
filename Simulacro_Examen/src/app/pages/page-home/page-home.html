@@ -5,7 +5,7 @@
     @for (producto of productos; track producto.id) {
 
       @if(producto.active === true){
-      <app-component-producto [producto]="producto"></app-component-producto>
+      <app-component-producto [producto]="producto" (eliminar)="deleteProduct($event)"></app-component-producto>
       }
 
     }
