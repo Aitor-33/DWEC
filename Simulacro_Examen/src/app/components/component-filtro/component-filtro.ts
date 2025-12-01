@@ -13,16 +13,19 @@ export class ComponentFiltro {
     filterForm: any;
     Sapi = inject(Sapi);
 
+    //output de categoria seleccionada
     @Output() categoriaSeleccionada: EventEmitter<string> = new EventEmitter();
 
     constructor() {
         this.categorias = [];
     }
 
+    //cogemos todas las categorias que hay
     ngOnInit() {
         this.categorias = this.Sapi.getAllCategory();
     }
 
+    //para recoger los datos del filtro y hacer el output
     getDataFilter(form: any) {
         this.categoriaSeleccionada.emit(form.value.curso);
     }

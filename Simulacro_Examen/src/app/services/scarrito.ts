@@ -17,6 +17,7 @@ export class SCarrito {
 
     }
 
+    //metodo para insertar el producto introducido
   insertarProducto(producto: Iproducto): void {
 
     if (!this.arrProductos.includes(producto) && producto != null) {
@@ -26,6 +27,7 @@ export class SCarrito {
     }
   }
 
+  //metodo para recoger un producto por su id y validado para que si no existe nos salgo uno predefinido
       getById(id: number): Iproducto | undefined {
         let producto: Iproducto;
 
@@ -50,6 +52,7 @@ export class SCarrito {
         return producto;
     }
 
+    //lo mismo del de arriba pero con name
     getByName(name: string): Iproducto  {
         let producto: Iproducto;
         let response = this.arrProductos.find(p => p.name == name);
@@ -71,6 +74,7 @@ export class SCarrito {
         return producto;
     }
 
+    //aqui esta el metodo para borrar por el nombre si quisiera eliminarlo por id solo seria cambiarlo es sencillo
     deleteByName(name: string): void {
         // this.arrSeries = this.arrSeries.filter(serie => serie.title !== title);
         // console.log(this.arrSeries);

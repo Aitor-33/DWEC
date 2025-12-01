@@ -26,7 +26,7 @@ export class PageFormulario {
 constructor(){
 
   this.productoForm = new FormGroup({
-
+//aqui pillo las cosas del formulario
     id: new FormControl(null, [Validators.required]),
     name:new FormControl(null, [Validators.required, Validators.minLength(3)]),
     description:new FormControl(null, [Validators.required]),
@@ -38,8 +38,8 @@ constructor(){
 
 }
 
+//aqui recojo los datos del formulario y lo inserto en el array
 getDataForm(){
-
   let producto = this.productoForm.value as Iproducto;
 
   this.sCarrito.insertarProducto(producto);
@@ -50,6 +50,7 @@ getDataForm(){
 
 }
 
+//esto es para las lineas rojas cuando no esta bien el formato y todo eso
     checkControl(formControlName: string, validator: string): boolean | undefined {
         return this.productoForm.get(formControlName)?.hasError(validator) && this.productoForm.get(formControlName)?.touched
     }

@@ -20,12 +20,14 @@ export class ComponentProducto {
 
   router = inject(Router);
 
+  //output de eliminar
 @Output() eliminar = new EventEmitter<string>();
 
   ngOnInit():void{
 
   }
 
+  //aqui el metodo de elimnar que hay que mandarlo medianto in output
     deleteProducto(producto: Iproducto) {
         this.SCarrito.deleteByName(producto.name);
         this.eliminar.emit(this.producto.name);

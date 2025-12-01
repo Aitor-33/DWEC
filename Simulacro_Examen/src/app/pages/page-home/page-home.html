@@ -1,10 +1,12 @@
 <div class="row row-cols-1 row-cols-md-2 g-4">
 
+  <!-- aqui esta el output de la categoria para el filtrar -->
     <app-component-filtro (categoriaSeleccionada)="getCourse($event)" class="mt-5"></app-component-filtro>
 
     @for (producto of productos; track producto.id) {
 
       @if(producto.active === true){
+        <!-- aqui esta el output de eliminar producto -->
       <app-component-producto [producto]="producto" (eliminar)="deleteProduct($event)"></app-component-producto>
       }
 

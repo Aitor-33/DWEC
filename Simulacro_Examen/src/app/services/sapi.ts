@@ -13,6 +13,7 @@ export class Sapi {
   roles: string[];
   CurrentRol: string;
 
+  //aqui metemos todo lo necesario y el fetch
   constructor() {
     this.roles = ["user", "admin"];
     this.CurrentRol = "user";
@@ -31,35 +32,36 @@ export class Sapi {
       });
 
   }
-
+//aqui el metodo para que te de todos los productos
   obtenerProductos(): Iproducto[] {
 
     return this.arrayProductos;
-    console.log(this.arrayProductos);
-
 
   }
-
+//metodo para que te de todas las categorias
   getAllCategory(): string[] {
     return this.categories;
   }
 
+  //para borrar un producto por su id introducido
   removeStudentbyId(studentRemove: Iproducto): void {
     this.arrayProductos = this.arrayProductos.filter(producto => producto.id !== studentRemove.id);
   }
 
+  //para recoger los productos por la categoria introducida
       getStudentByCategoria(category: string): Iproducto[] {
         return this.arrayProductos.filter(producto => producto.category.includes(category));
     }
 
+    //para cambiar el rol
   setRole(rol: string) {
     this.CurrentRol = rol;
   }
-
+//para recoger el rol
   getRole(): string {
     return this.CurrentRol;
   }
-
+//para recoger todos los roles
   getAllRoles(): string[] {
     return this.roles;
   }

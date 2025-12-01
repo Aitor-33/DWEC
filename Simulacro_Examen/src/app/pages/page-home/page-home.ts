@@ -27,12 +27,13 @@ export class PageHome {
       this.productos = [];
     }
 
-
+    //aqui meto todos los productos desde la api en el array de home
     ngOnInit(): void {
         this.productos = this.Sapi.obtenerProductos();
 
     }
 
+    //esto es para filtrar mediante un output
     getCourse($event: string) {
         this.productos = this.Sapi.getStudentByCategoria($event);
     }

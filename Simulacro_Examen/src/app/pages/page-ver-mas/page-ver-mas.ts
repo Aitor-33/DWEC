@@ -17,6 +17,7 @@ export class PageVerMas {
     activatedRoute = inject(ActivatedRoute);
 
     ngOnInit(): void {
+      //mediante el activated route metemos el id del producto al que queremos acceder y se metera en la ruta
         this.activatedRoute.params.subscribe((params: any) => {
             // recoger el parametro
             let id: number = Number(params.id);
@@ -24,12 +25,12 @@ export class PageVerMas {
 
             if (id != undefined) {
 
-                // Pedir al servicio el servicioProfesional
+                // Pedir al servicio el producto mediante su id
                 let response = this.sCarrito.getById(id);
 
                 if (response != undefined) {
 
-                    // Rellenar mi propiedad miServicio
+                    // Rellenar mi propiedad miProducto
                     this.Miproducto = response;
                 }
             }

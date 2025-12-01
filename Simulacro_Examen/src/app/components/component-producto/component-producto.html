@@ -11,6 +11,7 @@
         <button type="button" class="btn btn-success">Añadir al carrito</button>
         <button class="btn btn-warning" type="" [routerLink]="['/ver-mas',producto.id]">Ver mas</button>
 
+        <!-- esta es la validacion para que solo te salga el boton de eliminar si eres admin -->
         @if(Sapi.CurrentRol === "admin"){
 
           <button class="btn btn-danger" type="" (click)="deleteProducto(producto)">Eliminar</button>

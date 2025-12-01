@@ -10,6 +10,7 @@
       <label for="name" class="form-label mt-lg-3">Nombre</label>
       <input type="text" class="form-control" name="name" id="name" placeholder="Introduce el nombre del producto"
         formControlName="name">
+        <!-- estos if son para los estilos de los errores -->
             @if(checkControl('name','required')){
 
             <p class="error">Campo requerido</p>
@@ -37,6 +38,7 @@
     <div class="my-2">
     <label for="category" class="for-label">Categoria</label>
     <select name="category" id="category" class="form-control" formControlName="category">
+      <!-- esto es para que salgan todas las categorias en el formulario -->
         @for(categoria of Sapi.getAllCategory() ; track $index){
         <option [value]="categoria">{{categoria}}</option>
         }
@@ -61,6 +63,7 @@
       <button class="btn btn-warning mt-5" [routerLink]="['/home']" routerLinkActive="active">Volver</button>
     </div>
 
+    <!-- este es el boton que llama a la funcion que recoge los dato e inserta el producto -->
     <div class="d-flex ms-auto gap-2">
       <button class="btn btn-info mt-5" type="submit" (ngSubmit)="getDataForm()" routerLinkActive="active">Guardar</button>
     </div>

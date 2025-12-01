@@ -14,6 +14,7 @@
         <li class="nav-item ">
           <a class="nav-link text-light" [routerLink]="['carrito']" routerLinkActive="active">Carrito</a>
         </li>
+        <!-- aqui la validacion del rol para que si eres admin puedas entrar en formulario y si no no puedas -->
         @switch(sapi.getRole()){@case ("admin") {
         <li class="nav-item ">
           <a class="nav-link text-light" [routerLink]="['formulario']" routerLinkActive="active">formulario</a>
