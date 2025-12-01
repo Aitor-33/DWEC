@@ -8,30 +8,44 @@ export class Sapi {
 
   arrayProductos: Iproducto[];
 
+  private categories: string[] = [];
 
 
-
-  constructor(){
+  constructor() {
     this.arrayProductos = [];
-
-  fetch('http://localhost:8080/api/products')
-          .then(response => response.json())
-          .then(data =>{
-            data.forEach((producto: Iproducto) => {
-              this.arrayProductos.push(producto);
-            });
+    this.categories.push("hombre");
+    this.categories.push("mujer");
+    this.categories.push("niño");
+    fetch('http://localhost:8080/api/products')
+      .then(response => response.json())
+      .then(data => {
+        data.forEach((producto: Iproducto) => {
+          this.arrayProductos.push(producto);
+        });
 
 
       });
 
-}
+  }
 
-obtenerProductos(): Iproducto[] {
+  obtenerProductos(): Iproducto[] {
 
     return this.arrayProductos;
     console.log(this.arrayProductos);
 
 
   }
+
+  getAllCategory(): string[] {
+    return this.categories;
+  }
+
+  removeStudentbyId(studentRemove: Iproducto): void {
+    this.arrayProductos = this.arrayProductos.filter(producto => producto.id !== studentRemove.id);
+  }
+
+      getStudentByCategoria(category: string): Iproducto[] {
+        return this.arrayProductos.filter(producto => producto.category.includes(category));
+    }
 
 }

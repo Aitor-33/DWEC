@@ -24,10 +24,13 @@
     </div>
 
     <div class="my-2">
-      <label for="category" class="form-label mt-lg-3">Categoria</label>
-      <input type="text" class="form-control" name="category" id="category" placeholder="Introduce la categoria del producto"
-        formControlName="category">
-    </div>
+    <label for="category" class="for-label">Categoria</label>
+    <select name="category" id="category" class="form-control" formControlName="category">
+        @for(categoria of Sapi.getAllCategory() ; track $index){
+        <option [value]="categoria">{{categoria}}</option>
+        }
+    </select>
+  </div>
 
     <div class="my-2">
       <label for="image" class="form-label mt-lg-3">Imagen</label>
@@ -36,17 +39,19 @@
     </div>
 
     <div class="my-2">
-      <label for="active" class="form-label mt-lg-3">activo?</label>
-      <input type="text" class="form-control" name="active" id="active" placeholder="activo?" formControlName="active">
+      <label for="image" class="form-label mt-lg-3">Active</label>
+    <select name="active" id="active" class="form-control" formControlName="active">
+        <option [value]="true">true</option>
+        <option [value]="false">false</option>
+    </select>
     </div>
-
 
     <div class="d-flex ms-auto gap-2">
       <button class="btn btn-warning mt-5" [routerLink]="['/home']" routerLinkActive="active">Volver</button>
     </div>
 
     <div class="d-flex ms-auto gap-2">
-      <button class="btn btn-info mt-5" (click)="getDataForm()" routerLinkActive="active">Guardar</button>
+      <button class="btn btn-info mt-5" type="submit" (ngSubmit)="getDataForm()" routerLinkActive="active">Guardar</button>
     </div>
   </form>
 </div>

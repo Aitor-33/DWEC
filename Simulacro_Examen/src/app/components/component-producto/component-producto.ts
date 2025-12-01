@@ -1,17 +1,20 @@
+import { SCarrito } from './../../services/scarrito';
 import { Iproducto } from '../../interfaces/iproducto';
 import { Sapi } from './../../services/sapi';
 import { Component, inject, Input, input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-component-producto',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './component-producto.html',
   styleUrl: './component-producto.css',
 })
 export class ComponentProducto {
 
   Sapi = inject(Sapi);
+
+  SCarrito = inject(SCarrito);
 
   @Input() producto!:Iproducto;
 
@@ -23,10 +26,9 @@ export class ComponentProducto {
 
   }
 
-
-      seeDetails(producto: Iproducto) {
-        this.router.navigate(['/producto', producto.id]);
-
+    deleteProducto(producto: Iproducto) {
+        this.SCarrito.deleteByName(producto.name);
     }
+
 
 }

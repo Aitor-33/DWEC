@@ -1,3 +1,4 @@
+import { Sapi } from './../../services/sapi';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive} from '@angular/router';
@@ -15,6 +16,8 @@ export class PageFormulario {
   productoForm: FormGroup;
 
     sCarrito = inject(SCarrito);
+
+    Sapi = inject(Sapi)
 
     activatedRoute = inject(ActivatedRoute);
     router = inject(Router);
