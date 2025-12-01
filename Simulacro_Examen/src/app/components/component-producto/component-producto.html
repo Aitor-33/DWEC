@@ -11,7 +11,12 @@
         <button type="button" class="btn btn-success">Añadir al carrito</button>
         <button class="btn btn-warning" type="" [routerLink]="['/ver-mas',producto.id]">Ver mas</button>
 
-        <button class="btn btn-danger" type="" (click)="deleteProducto(producto)">Eliminar</button>
+        @if(Sapi.CurrentRol === "admin"){
+
+          <button class="btn btn-danger" type="" (click)="deleteProducto(producto)">Eliminar</button>
+
+        }
+
       </div>
     </div>
     </div>

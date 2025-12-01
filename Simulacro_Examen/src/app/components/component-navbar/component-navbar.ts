@@ -12,15 +12,4 @@ export class ComponentNavbar {
 
   sapi = inject(Sapi);
 
-  roles: string[];
-
-  rol: string;
-
-  constructor(){
-
-    this.roles = this.sapi.getRoles();
-    this.rol = this.roles[0];
-
-  }
-
 }

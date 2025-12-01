@@ -11,11 +11,11 @@ export class Sapi {
   private categories: string[] = [];
 
   roles: string[];
-  rol: string;
+  CurrentRol: string;
 
   constructor() {
     this.roles = ["user", "admin"];
-    this.rol = this.roles[0];
+    this.CurrentRol = "user";
     this.arrayProductos = [];
     this.categories.push("hombre");
     this.categories.push("mujer");
@@ -52,10 +52,15 @@ export class Sapi {
         return this.arrayProductos.filter(producto => producto.category.includes(category));
     }
 
-    getRoles(): string[]{
+  setRole(rol: string) {
+    this.CurrentRol = rol;
+  }
 
-      return this.roles;
-    }
+  getRole(): string {
+    return this.CurrentRol;
+  }
 
-
+  getAllRoles(): string[] {
+    return this.roles;
+  }
 }

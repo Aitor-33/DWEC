@@ -10,6 +10,17 @@
       <label for="name" class="form-label mt-lg-3">Nombre</label>
       <input type="text" class="form-control" name="name" id="name" placeholder="Introduce el nombre del producto"
         formControlName="name">
+            @if(checkControl('name','required')){
+
+            <p class="error">Campo requerido</p>
+
+            }
+
+            @if(checkControl('name','minlength')){
+
+            <p class="error">Longitud minima 3 caracteres</p>
+
+            }
     </div>
 
     <div class="my-2">

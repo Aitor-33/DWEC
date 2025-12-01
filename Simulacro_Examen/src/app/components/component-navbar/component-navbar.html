@@ -14,25 +14,31 @@
         <li class="nav-item ">
           <a class="nav-link text-light" [routerLink]="['carrito']" routerLinkActive="active">Carrito</a>
         </li>
-        @switch(rol){@case ('admin') {
+        @switch(sapi.getRole()){@case ("admin") {
         <li class="nav-item ">
           <a class="nav-link text-light" [routerLink]="['formulario']" routerLinkActive="active">formulario</a>
         </li>
-        }@case ('user'){
+        }@default {
+
+        <li class="nav-item ">
+          <a class="nav-link text-light disabled" [routerLink]="['formulario']" routerLinkActive="active">formulario</a>
+        </li>
 
         }
+
+
 
         }
 
         <li class="nav-item">
 
-          <select class="nav-link text-light">
-            @for(rol of roles; track rol){
-
-            <option [value]="rol">{{rol}}</option>
-
-            }
-          </select>
+<!--cambiar de rol-->
+        <select [(ngModel)]="sapi.CurrentRol">
+      <!--for de los roles-->
+        @for(rol of sapi.getAllRoles() ; track $index){
+        <option [value]="rol">{{rol}}</option>
+        }
+    </select>
         </li>
       </ul>
     </div>

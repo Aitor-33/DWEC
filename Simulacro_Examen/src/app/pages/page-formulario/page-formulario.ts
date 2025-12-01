@@ -1,6 +1,6 @@
 import { Sapi } from './../../services/sapi';
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive} from '@angular/router';
 import { Iproducto } from '../../interfaces/iproducto';
 import { SCarrito } from '../../services/scarrito';
@@ -28,7 +28,7 @@ constructor(){
   this.productoForm = new FormGroup({
 
     id: new FormControl(null, [Validators.required]),
-    name:new FormControl(null, [Validators.required]),
+    name:new FormControl(null, [Validators.required, Validators.minLength(3)]),
     description:new FormControl(null, [Validators.required]),
     price:new FormControl(null, [Validators.required]),
     category:new FormControl(null, [Validators.required]),
@@ -50,5 +50,8 @@ getDataForm(){
 
 }
 
+    checkControl(formControlName: string, validator: string): boolean | undefined {
+        return this.productoForm.get(formControlName)?.hasError(validator) && this.productoForm.get(formControlName)?.touched
+    }
 
 }
