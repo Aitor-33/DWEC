@@ -1,16 +1,15 @@
-import { Sapi } from './../../services/sapi';
 import { Component, inject } from '@angular/core';
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Route, RouterLink } from '@angular/router';
+import { SProductos } from '../../services/s-productos';
 import { FormsModule } from '@angular/forms';
-
 @Component({
   selector: 'app-component-navbar',
-  imports: [RouterLink, RouterLinkActive, FormsModule],
+  imports: [RouterLink, FormsModule],
   templateUrl: './component-navbar.html',
   styleUrl: './component-navbar.css',
 })
 export class ComponentNavbar {
 
-  sapi = inject(Sapi);
+    SProductos = inject(SProductos);
 
 }

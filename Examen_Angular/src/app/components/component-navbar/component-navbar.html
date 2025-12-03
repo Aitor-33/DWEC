@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand text-light" [routerLink]="['/']">Mi Tienda</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item ">
+          <a class="nav-link  text-light" aria-current="page" [routerLink]="['lista']"
+            routerLinkActive="active">Inicio</a>
+        </li>
+
+        @switch(SProductos.getRole()){
+        @case ("admin") {
+
+        <li class="nav-item ">
+          <a class="nav-link text-light" [routerLink]="['formulario']" routerLinkActive="active">formulario</a>
+        </li>
+
+        }@default {
+
+        }
+        }
+
+        <li class="nav-item">
+
+          <!--cambiar de rol-->
+          <!-- estos roles lo que he hecho que hagan es que si eres administrador puedes eliminar
+          editar y acceder al formulario para agregar y luego si eres usuario solo te deja darle a ver mas 
+          los  botones de eliminar, editar y el <a> del formulario desaparecen hice que desaparecieran porque me parecia mas visual
+          pero se que podria haberle puesto un disabled y funcionaria igual -->
+          <select class="form-select bg-dark text-light" [(ngModel)]="SProductos.CurrentRol">
+            <!--for de los roles-->
+            @for(rol of SProductos.getAllRoles() ; track $index){
+
+            <option [value]="rol">{{rol}}</option>
+
+            }
+
+          </select>
+
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>

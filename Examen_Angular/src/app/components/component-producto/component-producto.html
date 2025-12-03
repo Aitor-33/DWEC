@@ -1,0 +1,21 @@
+<div class="card">
+    <img [src]="producto.image" class="card-img-top imagen-producto" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{producto.name}}</h5>
+        <p class="card-text">{{producto.price}}€</p>
+        <hr>
+        <p class="card-text"></p>
+        <div class="d-flex gap-3 mx-5">
+            <button class="btn btn-success" type="" [routerLink]="['/ver-mas',producto.id]">Ver mas</button>
+
+            <!-- esta es la validacion para que solo te salga el boton de eliminar si eres admin -->
+
+            @if(SProductos.CurrentRol === "admin"){
+
+            <button class="btn btn-warning" type="" (click)="seeDetails(producto)">Editar</button>
+            <button class="btn btn-danger" type="" (click)="deleteProducto(producto)">Eliminar</button>
+
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+<div class="container mt-5 p-3">
+    <form [formGroup]="productoForm" class="card p-3 shadow bg-secondary" (ngSubmit)="getDataForm()">
+        <div class="my-2">
+            <label for="id" class="form-label mt-lg-3">Id</label>
+            <input type="number " class="form-control" name="id" id="id" placeholder="Introduce el id del producto"
+                formControlName="id">
+            @if(checkControl('id','required')){
+
+            <p class="error">Campo requerido</p>
+
+            }
+        </div>
+
+        <div class="my-2">
+            <label for="name" class="form-label mt-lg-3">Nombre</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Introduce el nombre del producto"
+                formControlName="name">
+            <!-- estos if son para los estilos de los errores -->
+            @if(checkControl('name','required')){
+
+            <p class="error">Campo requerido</p>
+
+            }
+
+            @if(checkControl('name','minlength')){
+
+            <p class="error">Longitud minima 3 caracteres</p>
+
+            }
+        </div>
+
+        <div class="my-2">
+            <label for="description" class="form-label mt-lg-3">Description</label>
+            <input type="text" class="form-control" name="description" id="description"
+                placeholder="Introduce la descripcion" formControlName="description">
+        </div>
+            @if(checkControl('description','required')){
+
+            <p class="error">Campo requerido</p>
+
+            }
+
+        <div class="my-2">
+            <label for="price" class="form-label mt-lg-3">Precio</label>
+            <input type="number" class="form-control" name="price" id="price" placeholder="precio"
+                formControlName="price">
+            @if(checkControl('price','required')){
+
+            <p class="error">Campo requerido</p>
+
+            }
+        </div>
+
+        <div class="my-2">
+            <label for="category" class="for-label">Categoria</label>
+            <select name="category" id="category" class="form-control" formControlName="category">
+                <!-- esto es para que salgan todas las categorias en el formulario -->
+                @for(categoria of SProductos.getAllCategory() ; track $index){
+                <option [value]="categoria">{{categoria}}</option>
+                }
+            </select>
+
+            @if(checkControl('category','required')){
+
+            <p class="error">Campo requerido</p>
+
+            }
+        </div>
+
+        <div class="my-2">
+            <label for="image" class="form-label mt-lg-3">Imagen</label>
+            <input type="text" class="form-control" name="image" id="image" placeholder="Introduce el link de la imagen"
+                formControlName="image">
+            @if(checkControl('image','required')){
+
+            <p class="error">Campo requerido</p>
+
+            }
+        </div>
+
+        <div class="my-2">
+            <label for="image" class="form-label mt-lg-3">Active</label>
+            <select name="active" id="active" class="form-control" formControlName="active">
+                <option [value]="true">true</option>
+                <option [value]="false">false</option>
+            </select>
+        </div>
+            @if(checkControl('active','required')){
+
+            <p class="error">Campo requerido</p>
+
+            }
+
+        <div class="d-flex ms-auto gap-2">
+            <button class="btn btn-warning mt-5" [routerLink]="['/lista']" routerLinkActive="active">Volver</button>
+        </div>
+
+        <!-- este es el boton que llama a la funcion que recoge los dato e inserta el producto -->
+        <div class="d-flex ms-auto gap-2">
+            <button class="btn btn-info mt-5" type="submit" (ngSubmit)="getDataForm()"
+                routerLinkActive="active">Guardar</button>
+        </div>
+    </form>
+</div>

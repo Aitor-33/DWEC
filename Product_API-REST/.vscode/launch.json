@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ProductApiRestApplication<Product_API-REST>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.decroly.product_apirest.ProductApiRestApplication",
+            "projectName": "Product_API-REST",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
