@@ -1,8 +1,16 @@
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="card mt-5" style="width: 25rem;">
+  <div class="m-5">
+    <img [src]="usuario.image" class="card-img-top rounded-circle" alt="...">
+    <div class="card-body">
+      <h5 class="card-title text-center">{{usuario.username}}</h5>
+      <p class="card-text text-center">{{usuario.first_name}} {{usuario.last_name}}</p>
+      <div class="d-flex justify-content-center gap-5">
+        <a href="#" class="btn btn-outline-danger rounded-circle"><i class="bi bi-trash"></i></a>
+        <a href="#" class="btn btn-outline-success rounded-circle"><i class="bi bi-search"></i></a>
+        <a href="#" class="btn btn-outline-warning rounded-circle"><i class="bi bi-pencil"></i></a>
+      </div>
+    </div>
   </div>
 </div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">

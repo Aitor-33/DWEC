@@ -8,4 +8,5 @@ export interface InterfaceUsuario {
     email:string;
     image:string;
     password:string;
+    
 }
