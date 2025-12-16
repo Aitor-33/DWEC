@@ -8,26 +8,34 @@ import { InterfaceUsuario } from '../interfaces/interface-usuario.interface';
   providedIn: 'root',
 })
 export class ServiceApi {
-  
+
 
 
   private baseUrl: string = 'https://peticiones.online/api/users';
 
   httpClient = inject(HttpClient);
 
-constructor(){}
+  constructor() { }
 
 
 
   async getAllUsers(): Promise<InterfaceUsuario[]> {
 
-  const response = await lastValueFrom(this.httpClient.get<Interface>(this.baseUrl));
+    const response = await lastValueFrom(this.httpClient.get<Interface>(this.baseUrl));
 
-  return response.results;
+    return response.results;
 
-}
+  }
+  async getUsersBy_Id(_id: string): Promise<InterfaceUsuario> {
 
+    const response = await lastValueFrom(this.httpClient.get<Interface>(this.baseUrl + '/' + _id));
 
+    return response.results
 
+  }
+
+    async getByID(_id: String): Promise<InterfaceUsuario>{
+      return lastValueFrom(this.httpClient.get<InterfaceUsuario >(this.baseURL + '/' + _id));
+    }
 
 }
