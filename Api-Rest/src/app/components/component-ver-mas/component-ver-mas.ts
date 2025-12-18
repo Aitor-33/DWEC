@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { InterfaceUsuario } from '../../interfaces/interface-usuario.interface';
 import { ServiceApi } from '../../services/service-api';
 import { ActivatedRoute } from '@angular/router';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-component-ver-mas',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './component-ver-mas.html',
   styleUrl: './component-ver-mas.css',
 })
@@ -17,26 +18,19 @@ export class ComponentVerMas {
     activatedRoute = inject(ActivatedRoute);
 
 
-    ngOnInit(): void {
-      //mediante el activated route metemos el id del producto al que queremos acceder y se metera en la ruta
-        this.activatedRoute.params.subscribe((params: any) => {
-            // recoger el parametro
-            let _id: string = params._id;
+  ngOnInit(): void{
+    this.activatedRoute.params.subscribe(async (params : any) =>{
+      let _id: string = params._id;
 
+      if(_id != undefined) {
+          let response = await this.sapi.getUsersBy_Id(_id);
+          if (response != undefined) {
+            this.usuario = response;
+          }
+      }
+    })
 
-            if (_id != undefined) {
-
-                // Pedir al servicio el usuario mediante su _id
-                let response = this.sapi.getUsersBy_Id(_id);
-
-                if (response != undefined) {
-
-                    // Rellenar mi propiedad miProducto
-                    this.usuario = response;
-                }
-            }
-        });
-    }
+  }
 
 
 

@@ -26,16 +26,9 @@ export class ServiceApi {
     return response.results;
 
   }
-  async getUsersBy_Id(_id: string): Promise<InterfaceUsuario> {
 
-    const response = await lastValueFrom(this.httpClient.get<Interface>(this.baseUrl + '/' + _id));
-
-    return response.results
-
-  }
-
-    async getByID(_id: String): Promise<InterfaceUsuario>{
-      return lastValueFrom(this.httpClient.get<InterfaceUsuario >(this.baseURL + '/' + _id));
+    async getUsersBy_Id(_id: String): Promise<InterfaceUsuario>{
+      return lastValueFrom(this.httpClient.get<InterfaceUsuario >(this.baseUrl + '/' + _id));
     }
 
 }
