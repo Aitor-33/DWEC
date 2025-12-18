@@ -1,1 +1,139 @@
-<h1 class="mt-5">esta es la pagina formulario</h1>
+<div class="container mt-5 p-3">
+
+  @if(isNew){
+  <h1>Insertar nueva serie</h1>
+  }
+  @else{
+  <h1>Editar serie</h1>
+  }
+
+  <form [formGroup]="usuarioForm" class="card p-3 shadow bg-secondary" (ngSubmit)="getDataForm()">
+
+    <!-- id -->
+    <div class="my-2">
+      <label for="id" class="form-label mt-lg-3">Id</label>
+      <input type="number " class="form-control" name="id" id="id" placeholder="Introduce el id del usuario"
+        formControlName="id">
+      @if(checkControl('id','required')){
+
+      <p class="error">Campo requerido</p>
+
+      }
+    </div>
+
+    <!-- _id -->
+    <div class="my-2">
+      <label for="_id" class="form-label mt-lg-3">_id</label>
+      <input type="number " class="form-control" name="_id" id="_id" placeholder="Introduce el _id del usuario"
+        formControlName="_id">
+      @if(checkControl('_id','required')){
+
+      <p class="error">Campo requerido</p>
+
+      }
+    </div>
+
+    <!-- username -->
+    <div class="my-2">
+      <label for="username" class="form-label mt-lg-3">Username</label>
+      <input type="text" class="form-control" name="username" id="username"
+        placeholder="Introduce tu username del usuario" formControlName="username">
+      <!-- estos if son para los estilos de los errores -->
+      @if(checkControl('username','required')){
+
+      <p class="error">Campo requerido</p>
+
+      }
+
+      @if(checkControl('username','minlength')){
+
+      <p class="error">Longitud minima 3 caracteres</p>
+
+      }
+    </div>
+
+    <!-- first name -->
+    <div class="my-2">
+      <label for="first_name" class="form-label mt-lg-3">Nombre</label>
+      <input type="text" class="form-control" name="first_name" id="first_name"
+        placeholder="Introduce el nombre del usuario" formControlName="first_name">
+
+      @if(checkControl('name','required')){
+
+      <p class="error">Campo requerido</p>
+
+      }
+
+      @if(checkControl('name','minlength')){
+
+      <p class="error">Longitud minima 3 caracteres</p>
+
+      }
+    </div>
+
+    <!-- last name -->
+    <div class="my-2">
+      <label for="last_name" class="form-label mt-lg-3">Apellidos</label>
+      <input type="text" class="form-control" name="last_name" id="last_name"
+        placeholder="Introduce los apellidos del usuario" formControlName="last_name">
+      @if(checkControl('last_name','required')){
+
+      <p class="error">Campo requerido</p>
+
+      }
+    </div>
+
+    <!-- email -->
+    <div class="my-2">
+      <label for="email" class="form-label mt-lg-3">Email</label>
+      <input type="email" class="form-control" name="email" id="email" placeholder="Introduce el email del usuario"
+        formControlName="email">
+      @if(checkControl('email','required')){
+
+      <p class="error">Campo requerido</p>
+
+      }
+    </div>
+
+    <!-- image -->
+    <div class="my-2">
+      <label for="image" class="form-label mt-lg-3">Imagen</label>
+      <input type="text" class="form-control" name="image" id="image" placeholder="Introduce el link de la imagen"
+        formControlName="image">
+      @if(checkControl('image','required')){
+
+      <p class="error">Campo requerido</p>
+
+      }
+    </div>
+
+    <!-- password -->
+    <div class="my-2">
+      <label for="password" class="form-label mt-lg-3">Contraseña</label>
+      <input type="password" class="form-control" name="password" id="password"
+        placeholder="Introduce la contraseña del usuario" formControlName="password">
+
+      @if(checkControl('password','required')){
+
+      <p class="error">Campo requerido</p>
+
+      }
+
+      @if(checkControl('password','minlength')){
+
+      <p class="error">Longitud minima 3 caracteres</p>
+
+      }
+    </div>
+
+    <div class="d-flex ms-auto gap-2">
+      <button class="btn btn-warning mt-5" [routerLink]="['/home']" routerLinkActive="active">Volver</button>
+    </div>
+
+    <!-- este es el boton que llama a la funcion que recoge los dato e inserta el producto -->
+    <div class="d-flex ms-auto gap-2">
+      <button class="btn btn-info mt-5" type="submit" (ngSubmit)="getDataForm()"
+        routerLinkActive="active">Guardar</button>
+    </div>
+  </form>
+</div>

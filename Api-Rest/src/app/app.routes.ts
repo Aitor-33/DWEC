@@ -11,6 +11,7 @@ export const routes: Routes = [
     { path: 'home', component: PageHome },
     { path: 'formulario', component: PageFormulario },
     { path: 'ver-mas/:_id', component: ComponentVerMas },
+    { path: 'formulario/:_id', component: PageFormulario },
     { path: '**', component: Page404 }
 
 ];
