@@ -1,0 +1,14 @@
+<section class="container mt-3">
+    <h2 class="text-primary">Usuario: {{usuario.username}}</h2>
+    <h3 class="text-secondary">Nombre y apellido: {{usuario.first_name}} {{usuario.last_name}}</h3>
+    <hr>
+    <p> Id: {{usuario.id}}</p>
+    <p> _Id: {{usuario._id}}</p>
+    <p>Email: {{usuario.email}}</p>
+    <p>Contraseña: {{usuario.password}}</p>
+    <img [src]="usuario.image" alt="">
+    <div class="container text-center mb-4">
+    <a [routerLink]="['/home']" class="btn btn-outline-warning rounded-circle fs-3 p-3"><i class="bi bi-arrow-bar-left fs-2"></i></a>
+    </div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</section>

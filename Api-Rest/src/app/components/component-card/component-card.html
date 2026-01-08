@@ -1,13 +1,13 @@
-<div class="card mt-5" style="width: 25rem;">
+<div class="card mt-5 miCard" style="width: 25rem;">
   <div class="m-5">
     <img [src]="usuario.image" class="card-img-top rounded-circle" alt="...">
     <div class="card-body">
       <h5 class="card-title text-center">{{usuario.username}}</h5>
       <p class="card-text text-center">{{usuario.first_name}} {{usuario.last_name}}</p>
       <div class="d-flex justify-content-center gap-5">
-        <a href="#" class="btn btn-outline-danger rounded-circle"><i class="bi bi-trash"></i></a>
-        <a href="#" class="btn btn-outline-success rounded-circle"><i class="bi bi-search"></i></a>
-        <a href="#" class="btn btn-outline-warning rounded-circle"><i class="bi bi-pencil"></i></a>
+        <a (click)="deleteSerie(usuario)" class="btn btn-outline-danger rounded-circle"><i class="bi bi-trash"></i></a>
+        <a [routerLink]="['/ver-mas', usuario._id]" class="btn btn-outline-success rounded-circle"><i class="bi bi-search"></i></a>
+        <a  (click)="seeDetails(usuario)" class="btn btn-outline-warning rounded-circle"><i class="bi bi-pencil"></i></a>
       </div>
     </div>
   </div>
