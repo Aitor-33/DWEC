@@ -38,4 +38,35 @@ ng g i interfaces/interface-noticia --type = interface
 
 ng g s services/service-productos
 
-emailjs
+ema
+
+esto fuera del proyecto
+npm i -g firebase-tools
+
+firebase login
+
+
+apartir de aquí dentro del proyecto
+
+//esto es para iniciarle
+firebase init
+
+le das a que si
+
+escogemos hosting
+
+public
+
+no
+
+no
+
+//esto es para compilarlo
+ng build --configuration=production
+
+
+//modificar public en firebase.json para que sea accesible a el index.html
+
+
+firebase deploy
+
