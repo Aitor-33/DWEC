@@ -1,0 +1,19 @@
+<div class="container">
+
+    <h1 class="text-center mt-5">Bienvenido a la Pagina Principal</h1>
+
+    <div class="row">
+        @for (producto of productolist; track producto.id) {
+        <div class="col-md-4 mb-4">
+          <app-product-card [producto]="producto"></app-product-card>
+        </div>
+        }
+    </div>
+
+<div class="d-flex justify-content-center gap-5 mb-5 mt-5">
+    <button class="btn btn-outline-primary rounded-circle">1</button>
+    <button class="btn btn-outline-primary rounded-circle">2</button>
+    <button class="btn btn-outline-primary rounded-circle">3</button>
+</div>
+
+</div>
