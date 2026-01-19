@@ -16,7 +16,9 @@ export class UserView {
   activateRoute = inject(ActivatedRoute);
   constructor() {}
 
+  //esto es para el ver mas de un usuario
   ngOnInit(): void {
+
     this.activateRoute.params.subscribe(async (params: any) => {
       let _id = params._id;
       if(_id != undefined){

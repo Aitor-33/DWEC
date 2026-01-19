@@ -13,12 +13,15 @@ import Swal from 'sweetalert2';
 })
 export class Login {
 
+  //importamos el servicio de autenticación para el login
   private Sauth = inject(Sauth);
   private router = inject(Router);
 
   ngOnInit(): void {
+    //aqui lo que hago es que si tiene el accessToken en el localStorage
+    //lo redirijo al home directamente
     if (localStorage.getItem('accessToken')) {
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/home']);
     }
   }
 
@@ -30,11 +33,13 @@ export class Login {
     try {
       let response = await this.Sauth.login(loginUser);
       console.log(response);
+      //qaqui lo que hago es guardar los tokens en el localStorage
+      //y redirigir a la página de home
       if (response.accessToken && response.refreshToken) {
         localStorage.setItem("accessToken", response.accessToken);
         localStorage.setItem("refreshToken", response.refreshToken);
 
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/home']);
         loginForm.reset();
       }
 

@@ -11,6 +11,7 @@ export class NavBar {
 
   private router = inject(Router);
 
+  //el logout lo que hace es eliminar los tokens del localStorage y redirigir al inicio
   logout() {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');

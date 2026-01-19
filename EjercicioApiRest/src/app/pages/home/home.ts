@@ -19,6 +19,7 @@ export class Home {
     this.arrayUsers = [];
   }
 
+  //aqui declaro las variables para la paginación
   pageActual: number = 1;
   totalPages: number = 1;
   totalUsers: number = 0;
@@ -28,6 +29,7 @@ export class Home {
   async loadUsers(page: number): Promise<void> {
     this.loading = true;
     try{
+      //aqui lo que hago es cargar los usuarios de la página indicada
       const response = await this.userServices.getAllUsers(page);
       this.arrayUsers = response.results;
       this.pageActual = response.page;
@@ -47,11 +49,13 @@ export class Home {
   }
 
   async ngOnInit(): Promise<void> {
+    //al iniciar la página cargo los usuarios de la primera página
     await this.loadUsers(this.pageActual);
   }
 
   async onUserDeleted(userId: string): Promise<void> {
     try{
+      //Aquí manejo el evento de borrado de usuario
       await this.userServices.deleteUserById(userId);
       this.arrayUsers = this.arrayUsers.filter(user => user._id !== userId);
       if(this.arrayUsers.length === 0 && this.pageActual > 1){

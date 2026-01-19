@@ -2,6 +2,8 @@ import { HttpInterceptorFn } from '@angular/common/http';
 
 export const interceptorInterceptor: HttpInterceptorFn = (req, next) => {
 
+
+  //esto es asi tal cual siempre que vamos a usar el interceptor
   const cloneRequest = req.clone({
         setHeaders: {
             'Content-type': 'aplication/json',

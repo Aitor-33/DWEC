@@ -9,7 +9,7 @@ import { loginGuardGuard } from './guards/login-guard-guard';
 export const routes: Routes = [
   {path:'', pathMatch:'full', redirectTo:'landingPage'},
   {path:'landingPage', component: LandingPage},
-  {path:'login', component: Login},
+  {path:'login', component: Login}, //aqui lo que hago es poner la guarda de que si no está logueado no puede acceder a las paginas
   {path:'home', component: Home, canActivate: [loginGuardGuard]},
   {path: 'user-view', component: UserView, canActivate: [loginGuardGuard]},
   {path: 'user-view/:_id', component: UserView, canActivate: [loginGuardGuard]},

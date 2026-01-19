@@ -16,6 +16,7 @@ export class UserCard {
   @Input() user!: IUsers;
   @Output() userDeleted = new EventEmitter<string>();
 
+  //delete user
   async deleteUser(user: IUsers) {
       try {
         await this.userServices.deleteUserById(user._id);

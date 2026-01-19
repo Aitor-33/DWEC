@@ -19,7 +19,6 @@ export class UserForm {
   activatedRoute = inject(ActivatedRoute);
   router = inject(Router);
   isNew: boolean;
-  emailPattern: string = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
 
   constructor(){
     this.newUserForm = new FormGroup({
@@ -28,7 +27,7 @@ export class UserForm {
       first_name: new FormControl(null,[Validators.required, Validators.minLength(3)]),
       last_name: new FormControl(null,[Validators.required,  Validators.minLength(3)],),
       username: new FormControl(null,[Validators.required, Validators.minLength(3)]),
-      email: new FormControl(null,[Validators.required,Validators.pattern(this.emailPattern)]),
+      email: new FormControl(null,[Validators.required,Validators.email]),
       image: new FormControl(null,[Validators.required]),
       password: new FormControl(null,[Validators.required, Validators.minLength(8)])
     });

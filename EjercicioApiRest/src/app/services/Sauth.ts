@@ -8,10 +8,12 @@ import { lastValueFrom } from 'rxjs';
 })
 export class Sauth {
     private httpClient = inject(HttpClient);
+    //la URL base del servicio de autenticación
     private baseUrl: string = 'https://dummyjson.com/auth/';
 
     constructor() { }
 
+    //le hacemos la petición de login al backend
     login(user: Iauth): Promise<any> {
         return lastValueFrom(this.httpClient.post<any>(this.baseUrl + "login", user));
     }

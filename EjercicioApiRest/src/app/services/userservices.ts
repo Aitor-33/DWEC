@@ -10,6 +10,7 @@ import { IUsers } from '../interfaces/iusers';
 
 export class Userservices {
 
+  //Definimos la base url de la api
   private baseUrl: string = 'https://peticiones.online/api/users';
   httpClient = inject(HttpClient);
 

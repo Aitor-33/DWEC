@@ -8,9 +8,11 @@ export const loginGuardGuard: CanActivateFn = (route, state) => {
     //True deja navegar a la ruta
     //False bloquea el acceso a la ruta
 
+    //si tiene el accessToken en el localStorage dejo navegar
     if (localStorage.getItem('accessToken')) {
         isAuth = true;
     }
+    //si no lo tiene lo redirijo al login
     else {
         router.navigate(['/login']);
     }
