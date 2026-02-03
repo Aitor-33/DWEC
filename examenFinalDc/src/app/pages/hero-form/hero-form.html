@@ -1,0 +1,56 @@
+<section class="container my-3">
+  @if (isNew) {
+    <h1 class="text-center mb-4">Insertar nuevo usuario</h1>
+  }
+  @else {
+    <h1 class="text-center mb-4">Editar usuario</h1>
+  }
+  <hr>
+  <form [formGroup]="newHeroForm" class="card p-3" (ngSubmit)="getDataForm()">
+
+    <div class="my-2">
+      <label for="heroname" class="form-label mt-lg-3">Nombre del heroe</label>
+      <input type="text" class="form-control" name="heroname" id="heroname" placeholder="Introduce el nombre del heroe" formControlName="heroname">
+    </div>
+
+    <div class="my-2">
+      <label for="fullname" class="form-label mt-lg-3">nombre completo</label>
+      <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Introduce el nombre completo" formControlName="fullname">
+    </div>
+
+    <div class="my-2">
+      <label for="image1" class="form-label mt-lg-3">introduzca la url de una imagen</label>
+      <input type="text" class="form-control" name="image1" id="image1" placeholder="Introduce el link a la foto" formControlName="image1">
+    </div>
+
+    <div class="my-2">
+      <label for="image2" class="form-label mt-lg-3">introduzca la url de una imagen</label>
+      <input type="text" class="form-control" name="image2" id="image2" placeholder="Introduce el link a la foto" formControlName="image2">
+    </div>
+
+    <div class="my-2">
+      <label for="image3" class="form-label mt-lg-3">introduzca la url de una imagen</label>
+      <input type="text" class="form-control" name="image3" id="image3" placeholder="Introduce el link a la foto" formControlName="image3">
+    </div>
+
+    <div class="my-2">
+      <label for="gender" class="form-label mt-lg-3">genero</label>
+      <input type="text" class="form-control" name="gender" id="gender" placeholder="Introduce el genero" formControlName="gender">
+    </div>
+
+        <div class="my-2">
+      <label for="race" class="form-label mt-lg-3">raza</label>
+      <input type="text" class="form-control" name="race" id="race" placeholder="Introduce la raza" formControlName="race">
+    </div>
+
+        <div class="my-2">
+      <label for="alignment" class="form-label mt-lg-3">alignment</label>
+      <input type="text" class="form-control" name="alignment" id="alignment" placeholder="Introduce el alignment" formControlName="alignment">
+    </div>
+
+    <div class="d-flex justify-content-center gap-3">
+      <button type="submit" value="Guardar" class="btn btn-success mt-5" [disabled]="!newHeroForm.valid && isNew">Guardar</button>
+      <button class="btn btn-secondary mt-5"[routerLink]="['/dashboard']">Cancelar</button>
+    </div>
+  </form>
+</section>
