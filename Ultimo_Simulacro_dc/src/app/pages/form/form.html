@@ -1,0 +1,120 @@
+<form class="p-5 m-2" [formGroup]="heroForm" (ngSubmit)="getDataForm()">
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="heroname" class="form-label">Nombre de Héroe</label>
+            <input type="text" class="form-control" id="heroname" formControlName="heroname" required>
+        </div>
+        <div class="col-md-6">
+            <label for="fullname" class="form-label">Nombre Completo</label>
+            <input type="text" class="form-control" id="fullname" formControlName="fullname" required>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label for="image1" class="form-label">Imagen 1 (URL)</label>
+            <input type="url" class="form-control" id="image1" formControlName="image1">
+        </div>
+        <div class="col-md-4">
+            <label for="image2" class="form-label">Imagen 2 (URL)</label>
+            <input type="url" class="form-control" id="image2" formControlName="image2">
+        </div>
+        <div class="col-md-4">
+            <label for="image3" class="form-label">Imagen 3 (URL)</label>
+            <input type="url" class="form-control" id="image3" formControlName="image3">
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <label for="gender" class="form-label">Género</label>
+            <select class="form-select" id="gender" formControlName="gender" required>
+                <option value="">Seleccione...</option>
+                <option value="Male">Masculino</option>
+                <option value="Female">Femenino</option>
+                <option value="Other">Otro</option>
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label for="race" class="form-label">Raza</label>
+            <input type="text" class="form-control" id="race" formControlName="race" required>
+        </div>
+
+        <div class="col-md-4">
+            <label for="alignment" class="form-label">Alineación</label>
+            <select class="form-select" id="alignment" formControlName="alignment" required>
+                <option value="">Seleccione...</option>
+                <option value="Good">Bueno</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Bad">Malo</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="card mb-4 bg-light">
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0"><i class="bi bi-bar-chart-fill me-2"></i>Estadísticas del Personaje</h4>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="intelligence" class="form-label">
+                        <i class="bi bi-lightbulb-fill text-warning me-2"></i>Inteligencia (0-100)
+                    </label>
+                    <input type="number" class="form-control" id="intelligence" formControlName="intelligence" min="0"
+                        max="100" required>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="strength" class="form-label">
+                        <i class="bi bi-lightning-fill text-danger me-2"></i>Fuerza (0-100)
+                    </label>
+                    <input type="number" class="form-control" id="strength" formControlName="strength" min="0" max="100"
+                        required>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="speed" class="form-label">
+                        <i class="bi bi-speedometer2 text-info me-2"></i>Velocidad (0-100)
+                    </label>
+                    <input type="number" class="form-control" id="speed" formControlName="speed" min="0" max="100"
+                        required>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="durability" class="form-label">
+                        <i class="bi bi-shield-fill text-success me-2"></i>Durabilidad (0-100)
+                    </label>
+                    <input type="number" class="form-control" id="durability" formControlName="durability" min="0"
+                        max="100" required>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="power" class="form-label">
+                        <i class="bi bi-star-fill text-primary me-2"></i>Poder (0-100)
+                    </label>
+                    <input type="number" class="form-control" id="power" formControlName="power" min="0" max="100"
+                        required>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="combat" class="form-label">
+                        <i class="bi bi-trophy-fill text-dark me-2"></i>Combate (0-100)
+                    </label>
+                    <input type="number" class="form-control" id="combat" formControlName="combat" min="0" max="100"
+                        required>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-success me-2">Guardar</button>
+        <a class="btn btn-secondary" [routerLink]="['/dashboard/ListaHero']">Volver</a>
+    </div>
+
+</form>

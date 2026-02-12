@@ -37,5 +37,7 @@ export class HeroeService {
     return lastValueFrom(this.httpClient.post<Iheroe>(this.baseUrl + "/characters", heroe));
   }
 
-
+  async updateHeroe(heroe: Iheroe): Promise<Iheroe>{
+    return lastValueFrom(this.httpClient.put<Iheroe>(this.baseUrl + "/characters", heroe));
+  }
 }

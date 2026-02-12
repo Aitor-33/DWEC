@@ -1,0 +1,17 @@
+
+<div class="card h-100 shadow-sm">
+    <img [src]="hero.image1 " class="card-img-top" [alt]="hero.heroname" style="height: 300px; object-fit: cover;">
+    <div class="card-body">
+        <h5 class="card-title">{{ hero.heroname }}</h5>
+        <p class="card-text text-muted">{{ hero.fullname }}</p>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge" [ngClass]="hero.alignment === 'good' ? 'bg-success' : 'bg-danger'">
+                {{ hero.alignment === 'good' ? 'Héroe' : 'Villano' }}
+            </span>
+            <small class="text-muted">{{ hero.race }}</small>
+        </div>
+        <button class="btn btn-primary w-100" [routerLink]="['/dashboard/listahero', hero.id]">
+            Ver Detalles
+        </button>
+    </div>
+</div>

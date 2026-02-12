@@ -1,0 +1,81 @@
+<div class="container mt-5 p-5">
+    <div class="card shadow-lg bg-secondary text-white">
+        <div class="card-body">
+            <img [src]="heroe.image1 " class="card-img" [alt]="heroe.heroname" style="height: 200px; width: 200px; object-fit: cover;">
+            <!-- Nombre -->
+            <h2 class="card-title text-center mb-1">{{ heroe.heroname }}</h2>
+            <h5 class="text-center text-warning mb-4">{{ heroe.fullname }}</h5>
+
+            <!-- Estadísticas -->
+            <h4 class="mb-3">Estadísticas</h4>
+
+            <div class="mb-3">
+                <label class="form-label">Intelligence</label>
+                <div class="progress">
+                    <div class="progress-bar bg-info" [style.width.%]="heroe.powerstats.intelligence">
+                        {{ heroe.powerstats.intelligence }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Strength</label>
+                <div class="progress">
+                    <div class="progress-bar bg-danger" [style.width.%]="heroe.powerstats.strength">
+                        {{ heroe.powerstats.strength }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Speed</label>
+                <div class="progress">
+                    <div class="progress-bar bg-success" [style.width.%]="heroe.powerstats.speed">
+                        {{ heroe.powerstats.speed }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Durability</label>
+                <div class="progress">
+                    <div class="progress-bar bg-warning" [style.width.%]="heroe.powerstats.durability">
+                        {{ heroe.powerstats.durability }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Power</label>
+                <div class="progress">
+                    <div class="progress-bar bg-primary" [style.width.%]="heroe.powerstats.power">
+                        {{ heroe.powerstats.power }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Combat</label>
+                <div class="progress">
+                    <div class="progress-bar bg-dark" [style.width.%]="heroe.powerstats.combat">
+                        {{ heroe.powerstats.combat }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="d-flex justify-content-end mt-4">
+                <a class="btn btn-light me-2" [routerLink]="['/dashboard/ListaHero']">
+                    <i class="bi bi-arrow-left me-2"></i>Volver
+                </a>
+                <a class="btn btn-warning" [routerLink]="['/dashboard/formulairo', heroe.id]">
+                    <i class="bi bi-pencil me-2"></i>Editar
+                </a>
+                <a class="btn btn-outline-primary" (click)="eliminarHeroe(heroe)" [routerLink]="['/dashboard/ListaHero']">
+                <p>Eliminar</p>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>

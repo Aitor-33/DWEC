@@ -1,0 +1,18 @@
+
+
+<h1 class="p-5 text-center">Bienvenido a tu coleccion de heroes de DC</h1>
+
+@if(isToken){
+    <li class="nav-item active">
+    <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboard']">Dashboard</a>
+</li>
+}
+@else {
+    <li class="nav-item active">
+    <a class="nav-link" routerLinkActive="active" [routerLink]="['/inicio']">Iniciar sesion</a>
+</li>
+}
+
+
+
+

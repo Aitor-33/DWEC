@@ -1,0 +1,113 @@
+    <div class="container-fluid">
+    <!-- SECCIÓN DE FILTROS -->
+    <div class="card shadow-sm m-4">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0"><i class="bi bi-funnel-fill me-2"></i>Filtros de Búsqueda</h4>
+        </div>
+        <div class="card-body">
+            <div class="row g-3">
+                <!-- Filtro por Nombre -->
+                <div class="col-md-3">
+                    <label for="filterName" class="form-label">
+                        <i class="bi bi-search me-2"></i>Buscar por Nombre
+                    </label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="filterName" 
+                        [(ngModel)]="filterName"
+                        (input)="aplicarFiltros()"
+                        placeholder="Nombre del héroe...">
+                </div>
+
+                <!-- Filtro por Género -->
+                <div class="col-md-3">
+                    <label for="filterGender" class="form-label">
+                        <i class="bi bi-gender-ambiguous me-2"></i>Género
+                    </label>
+                    <select 
+                        class="form-select" 
+                        id="filterGender"
+                        [(ngModel)]="filterGender"
+                        (change)="aplicarFiltros()">
+                        <option value="">Todos</option>
+                        <option value="Male">Masculino</option>
+                        <option value="Female">Femenino</option>
+                        <option value="Other">Otro</option>
+                    </select>
+                </div>
+
+                <!-- Filtro por Alineación -->
+                <div class="col-md-3">
+                    <label for="filterAlignment" class="form-label">
+                        <i class="bi bi-shield-fill me-2"></i>Alineación
+                    </label>
+                    <select 
+                        class="form-select" 
+                        id="filterAlignment"
+                        [(ngModel)]="filterAlignment"
+                        (change)="aplicarFiltros()">
+                        <option value="">Todos</option>
+                        <option value="Good">Bueno</option>
+                        <option value="Neutral">Neutral</option>
+                        <option value="Bad">Malo</option>
+                    </select>
+                </div>
+
+                <!-- Filtro por Fuerza Mínima -->
+                <div class="col-md-3">
+                    <label for="filterStrength" class="form-label">
+                        <i class="bi bi-lightning-fill me-2"></i>Fuerza Mínima: {{ filterStrength }}
+                    </label>
+                    <input 
+                        type="range" 
+                        class="form-range" 
+                        id="filterStrength"
+                        [(ngModel)]="filterStrength"
+                        (input)="aplicarFiltros()"
+                        min="0" 
+                        max="100"
+                        step="5">
+                    <small class="text-muted">0 - 100</small>
+                </div>
+            </div>
+
+            <!-- Botón para limpiar filtros -->
+            <div class="row mt-3">
+                <div class="col-12 text-end">
+                    <button class="btn btn-secondary" (click)="limpiarFiltros()">
+                        <i class="bi bi-x-circle me-2"></i>Limpiar Filtros
+                    </button>
+                </div>
+            </div>
+
+            <!-- Contador de resultados -->
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="alert alert-info mb-0">
+                        <i class="bi bi-info-circle me-2"></i>
+                        Mostrando <strong>{{ heroesFiltrados.length }}</strong> de <strong>{{ HeroArr.length }}</strong> héroes
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LISTA DE HÉROES -->
+    <div class="row m-5">
+        @if(heroesFiltrados.length > 0){
+            @for(heroe of heroesFiltrados; track heroe.id){
+                <div class="col-md-4 mb-4">
+                    <app-dc-card [hero]="heroe"></app-dc-card>
+                </div>
+            }
+        } @else {
+            <div class="col-12">
+                <div class="alert alert-warning text-center">
+                    <i class="bi bi-exclamation-triangle me-2"></i>
+                    No se encontraron héroes con los filtros aplicados
+                </div>
+            </div>
+        }
+    </div>
+</div>
