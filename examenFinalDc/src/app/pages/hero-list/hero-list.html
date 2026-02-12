@@ -1,0 +1,8 @@
+
+<div class="row">
+    @for(hero of arrayHeroes; track hero.id){
+    <article class="col-12 col-md-6 col-sm-3">
+        <app-hero-card [hero]="hero"></app-hero-card>
+    </article>
+    }
+</div>
