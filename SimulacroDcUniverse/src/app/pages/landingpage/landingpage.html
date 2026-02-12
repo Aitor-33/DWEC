@@ -1,0 +1,50 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <strong>Heroes App</strong>
+    </a>
+    <button class="btn btn-outline-light" [routerLink]="['/login']">Login</button>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="bg-primary text-white text-center py-5">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Bienvenido a Heroes App</h1>
+    <p class="lead">Descubre y gestiona tu colección de superhéroes</p>
+  </div>
+</div>
+
+<!-- Cards Section -->
+<div class="container my-5">
+  <div class="row g-4">
+
+    <!-- Card 1: Ver Héroes -->
+    <div class="col-md-6">
+      <div class="card text-center h-100 shadow">
+        <div class="card-body d-flex flex-column justify-content-center py-5">
+          <h3 class="card-title mb-3">¿Quieres ver nuestros héroes?</h3>
+          <p class="card-text text-muted mb-4">
+            Explora nuestra increíble colección de superhéroes con todas sus características y poderes.
+          </p>
+          <button class="btn btn-primary btn-lg" [routerLink]="['/heroes']">Ver héroes</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Añadir Héroe -->
+    <div class="col-md-6">
+      <div class="card text-center h-100 shadow">
+        <div class="card-body d-flex flex-column justify-content-center py-5">
+          <h3 class="card-title mb-3">¿Nos falta algún héroe?</h3>
+          <p class="card-text text-muted mb-4">
+            ¿Tienes un superhéroe favorito que no está en nuestra lista? ¡Agrégalo ahora!
+          </p>
+          <button class="btn btn-success btn-lg" [routerLink]="['/formulario']">Añadir héroe</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
