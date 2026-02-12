@@ -16,7 +16,7 @@ export class Login {
   private router = inject(Router);
 
   ngOnInit(): void {
-    if (localStorage.getItem('access_token')) {
+    if (localStorage.getItem('token')) {
       this.router.navigate(['/login']);
     }
   }

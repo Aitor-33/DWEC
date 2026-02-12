@@ -13,50 +13,51 @@ import { Router, RouterLink } from '@angular/router';
 export class Card {
 
 
-  private heroService = inject(HeroeService);
+  heroService = inject(HeroeService);
   @Input() heroe!: Iheroe;
   @Output() heroDeleted = new EventEmitter<number>();
 
 
   router = inject(Router);
 
-async eliminarHeroe(heroe: Iheroe) {
 
-  if (!heroe.id) return;
+    async eliminarHeroe(heroe: Iheroe){
 
-  const response = await this.heroService.deleteHeroById(heroe.id);
+  if (heroe.id == null) return;
 
-  this.heroDeleted.emit(heroe.id)
+      const response = await Swal.fire({
+        title: 'estas seguro?',
+        text: `vas a borrar a ${heroe.heroname}.`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'si, borrar',
+        cancelButtonText: 'cancelar'
+      });
 
-if (response.id) {
+      if(response.isConfirmed){
 
-      Swal.fire({
-        title: 'Eliminado',
-        text: 'El heroe: ' + this.heroe.heroname + ' ha sido eliminado correctamente',
-        icon: 'success',
-        confirmButtonText: 'aceptar',
-        timer: 6000
-      })
+        try{
 
-    } else {
+          await this.heroService.deleteHeroById(heroe.id);
+          Swal.fire({
+            icon: 'success',
+            title: 'heroe',
+            text: `heroe ${heroe.heroname} eliminado.`,
+          });
 
-      Swal.fire({
-        title: 'error',
-        text: 'El heroe: ' + this.heroe.heroname + ' no se ha podido eliminar',
-        icon: 'error',
-        confirmButtonText: 'aceptar',
-        timer: 6000
-      })
+          this.heroDeleted.emit(heroe.id);
 
-    }
+        } catch (error) {
 
-}
+          console.error('Error al borrar:', error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: `error al borrar: ${heroe.heroname}. intentelo mas tarde.`,
+          });
 
-
-      seeDetails(heroe: Iheroe) {
-        this.router.navigate(['/formulario', heroe.id]);
-        console.log(heroe);
-
+        }
+      }
     }
 
 }

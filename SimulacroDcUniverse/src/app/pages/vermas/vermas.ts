@@ -15,16 +15,23 @@ export class Vermas {
   Sheroe = inject(HeroeService);
   activatedRoute = inject(ActivatedRoute);
 
-  ngOnInit(): void{
+  async ngOnInit(): Promise<void>{
+
     this.activatedRoute.params.subscribe(async (params : any) =>{
-      let id: number = params.id;
+
+      let id = Number(params.id);
 
       if(id != undefined) {
+
           let response = await this.Sheroe.getHeroeId(id);
           if (response != undefined) {
+
             this.heroe = response;
+
           }
+
       }
+
     })
 
   }

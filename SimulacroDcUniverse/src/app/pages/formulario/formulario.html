@@ -1,1 +1,95 @@
 <app-navbar></app-navbar>
+
+
+<section class="container my-3">
+  @if (isNew) {
+    <h1 class="text-center mb-4">crea un heroe</h1>
+  }
+  @else {
+    <h1 class="text-center mb-4">Edita un heroe</h1>
+  }
+  <hr>
+  <form [formGroup]="newHeroForm" class="card p-3" (ngSubmit)="getDataForm()">
+
+    <div class="my-2">
+      <label for="heroname" class="form-label mt-lg-3">heroname</label>
+      <input type="text" class="form-control" name="heroname" id="heroname" placeholder="heroname" formControlName="heroname">
+    </div>
+
+    <div class="my-2">
+      <label for="fullname" class="form-label mt-lg-3">fullname</label>
+      <input type="text" class="form-control" name="fullname" id="fullname" placeholder="fullname" formControlName="fullname">
+    </div>
+
+    <div class="my-2">
+      <label for="image1" class="form-label mt-lg-3">image1</label>
+      <input type="text" class="form-control" name="image1" id="image1" placeholder="image1" formControlName="image1">
+    </div>
+
+    <div class="my-2">
+      <label for="image2" class="form-label mt-lg-3">image2</label>
+      <input type="text" class="form-control" name="image2" id="image2" placeholder="image2" formControlName="image2">
+    </div>
+
+    <div class="my-2">
+      <label for="image3" class="form-label mt-lg-3">Image3</label>
+      <input type="text" class="form-control" name="image3" id="image3" placeholder="Image link" formControlName="image3">
+    </div>
+
+    <div class="my-2">
+      <label for="gender" class="form-label mt-lg-3">gender</label>
+      <input type="text" class="form-control" name="gender" id="gender" placeholder="gender" formControlName="gender">
+    </div>
+
+        <div class="my-2">
+      <label for="race" class="form-label mt-lg-3">race</label>
+      <input type="text" class="form-control" name="race" id="race" placeholder="race" formControlName="race">
+    </div>
+
+        <div class="my-2">
+      <label for="alignment" class="form-label mt-lg-3">alignment</label>
+      <input type="text" class="form-control" name="alignment" id="alignment" placeholder="alignment" formControlName="alignment">
+    </div>
+
+
+  <!-- powerstats -->
+
+    <div class="my-2">
+      <label for="intelligence" class="form-label mt-lg-3">intelligence</label>
+      <input type="text" class="form-control" name="intelligence" id="intelligence" placeholder="intelligence" formControlName="intelligence">
+    </div>
+
+    <div class="my-2">
+      <label for="strength" class="form-label mt-lg-3">strength</label>
+      <input type="text" class="form-control" name="strength" id="strength" placeholder="strength" formControlName="strength">
+    </div>
+
+    <div class="my-2">
+      <label for="speed" class="form-label mt-lg-3">speed</label>
+      <input type="text" class="form-control" name="speed" id="speed" placeholder="speed" formControlName="speed">
+    </div>
+
+        <div class="my-2">
+      <label for="durability" class="form-label mt-lg-3">durability</label>
+      <input type="text" class="form-control" name="durability" id="durability" placeholder="durability" formControlName="durability">
+    </div>
+
+        <div class="my-2">
+      <label for="power" class="form-label mt-lg-3">power</label>
+      <input type="text" class="form-control" name="power" id="power" placeholder="power" formControlName="power">
+    </div>
+
+            <div class="my-2">
+      <label for="combat" class="form-label mt-lg-3">combat</label>
+      <input type="text" class="form-control" name="combat" id="combat" placeholder="combat" formControlName="combat">
+    </div>
+
+    <div class="d-flex justify-content-center gap-3">
+      <button type="submit" value="Save" class="btn btn-success mt-5" [disabled]="!newHeroForm.valid && isNew">Save</button>
+      <button class="btn btn-secondary mt-5"[routerLink]="['/employees']">Cancel</button>
+    </div>
+
+
+
+  </form>
+</section>

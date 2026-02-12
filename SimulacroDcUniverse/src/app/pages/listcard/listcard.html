@@ -2,7 +2,7 @@
   <div class="d-flex flex-wrap gap-4 justify-content-center">
     @for(heroe of heroesArray; track heroe.id) {
       <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
-      <app-card [heroe]="heroe" (deleted)="heroeEliminado($event)"></app-card>
+      <app-card [heroe]="heroe" (heroDeleted)="heroeEliminado($event)"></app-card>
       </div>
     }
   </div>

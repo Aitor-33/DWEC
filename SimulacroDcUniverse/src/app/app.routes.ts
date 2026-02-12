@@ -8,19 +8,29 @@ import { Vermas } from './pages/vermas/vermas';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
-
   { path: 'landing', component: Landingpage },
   { path: 'login', component: Login },
 
+  // Rutas protegidas directamente, sin path vacío padre
   {
-    path: '',
-    canActivate: [loginguardGuard],
-    children: [
-      { path: 'heroes', component: Listcard },
-      { path: 'formulario', component: Formulario },
-      { path: 'formulario/:id', component: Formulario },
-      { path: 'ver-mas/:id', component: Vermas },
-    ]
+    path: 'heroes',
+    component: Listcard,
+    canActivate: [loginguardGuard]
+  },
+  {
+    path: 'formulario',
+    component: Formulario,
+    canActivate: [loginguardGuard]
+  },
+  {
+    path: 'formulario/:id',
+    component: Formulario,
+    canActivate: [loginguardGuard]
+  },
+  {
+    path: 'ver-mas/:id',
+    component: Vermas,
+    canActivate: [loginguardGuard]
   },
 
   { path: '**', redirectTo: 'login' }

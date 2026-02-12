@@ -7,7 +7,7 @@
     </p>
     <div class="d-flex gap-2 justify-content-center">
       <button class="btn btn-danger btn-sm" (click)="eliminarHeroe(heroe)">Eliminar</button>
-      <button class="btn btn-primary btn-sm" (click)="seeDetails(heroe)">Editar</button>
+      <button class="btn btn-primary btn-sm" [routerLink]="['/formulario', heroe.id]">Editar</button>
       <button class="btn btn-success btn-sm" [routerLink]="['/ver-mas', heroe.id]">Ver más</button>
     </div>
   </div>

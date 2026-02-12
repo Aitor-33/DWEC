@@ -13,26 +13,49 @@ import { HeroeService } from '../../services/heroe-service';
 export class Listcard {
 
 
-  heroesArray: Iheroe[] = [];
+  heroesArray: Iheroe[] ;
   heroService = inject(HeroeService);
 
+  totalPages: number = 1;
+  totalElements: number = 0;
+  first: boolean = false;
+  last: boolean = false;
 
+constructor(){
+
+  this.heroesArray = [];
+
+}
+
+  async cargarHeroes(pagina: number): Promise<void>{
+    this.first = true;
+    this.last = true;
+    try {
+      const response = await this.heroService.getAllHeroes(pagina);
+
+      this.heroesArray = response.content;
+      this.totalPages = response.totalPages;
+      this.totalElements = response.totalElements;
+    }catch (error){
+      alert("error al obtener los usuarios");
+
+    }
+  }
 
   async ngOnInit(): Promise<void> {
 
-    this.heroesArray = await this.heroService.getAllHeroes();
+    await this.cargarHeroes(1);
 
     console.log(this.heroesArray);
   }
 
 
 
-
-
-
   heroeEliminado(heroeId: any) {
-    this.heroService.deleteHeroById(heroeId).then(() => {
+
+    this.heroService.deleteHeroById(heroeId)
+
       this.heroesArray = this.heroesArray.filter(heroe => heroe.id !== heroeId);
-    });
+
   }
 }
